@@ -1,4 +1,4 @@
-:root {
+/* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -65,4 +65,16 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-}
+} */
+@import url(./components/About/About.css);
+@import url(./components/App/App.css);
+@import url(./components/Footer/Footer.css);
+@import url(./components/Header/Header.css);
+@import url(./components/LoginModal/LoginModal.css);
+@import url(./components/Main/Main.css);
+@import url(./components/ModalWithForm/ModalWithForm.css);
+@import url(./components/Navigation/Navigation.css);
+@import url(./components/NewsCard/NewCard.jsx);
+@import url(./components/Preloader/Preloader.css);
+@import url(./components/RegisterModal/RegisterModal.css);
+@import url(./components/SearchForm/SearchForm.css);
