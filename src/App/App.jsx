@@ -12,6 +12,7 @@ import { useState } from "react";
 // import Preloader from "../Preloader/Preloader";
 // import RegisterModal from "../RegisterModal/RegisterModal";
 // import SearchForm from "../SearchForm/SearchForm";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
 
 function App() {
   const [isLoggedIn, setLoggedIn] = useState(false);
