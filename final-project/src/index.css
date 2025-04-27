@@ -74,7 +74,7 @@ button:focus-visible {
 @import url(./components/Main/Main.css);
 @import url(./components/ModalWithForm/ModalWithForm.css);
 @import url(./components/Navigation/Navigation.css);
-@import url(./components/NewsCard/NewCard.jsx);
+@import url(./components/NewsCard/NewsCard.css);
 @import url(./components/Preloader/Preloader.css);
 @import url(./components/RegisterModal/RegisterModal.css);
 @import url(./components/SearchForm/SearchForm.css);
