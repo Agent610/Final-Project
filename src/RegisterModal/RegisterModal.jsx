@@ -1,1 +1,1 @@
-export default RegisterModal;
+//export default RegisterModal;

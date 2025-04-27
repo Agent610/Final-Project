@@ -1,1 +1,1 @@
-export default NewsCard;
+//export default NewsCard;
