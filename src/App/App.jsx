@@ -9,7 +9,7 @@ import Navigation from "../Navigation/Navigation";
 import NewsCard from "../NewsCard/NewsCard";
 import Preloader from "../Preloader/Preloader";
 import RegisterModal from "../RegisterModal/RegisterModal";
-import SearchForm from "../final-project/src/components/SearchForm/SearchForm";
+import SearchForm from "../SearchForm/SearchForm";
 
 function App() {
   return <></>;
