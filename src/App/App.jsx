@@ -5,7 +5,7 @@ import "./App.css";
 import Header from "../Header/Header";
 import { useState } from "react";
 // import LoginModal from "../LoginModal/LoginModal";
-import Main from "../Main/Main";
+//import Main from "../Main/Main";
 // import ModalWithForm from "../ModalWithForm/ModalWithForm";
 // import Navigation from "../Navigation/Navigation";
 // import NewsCard from "../NewsCard/NewsCard";
@@ -22,7 +22,7 @@ function App() {
       <div className="app"></div>
       <div className="app__content">
         <Header isLoggedIn={isLoggedIn} />
-        <Main />
+        {/* <Main /> */}
       </div>
     </>
   );
