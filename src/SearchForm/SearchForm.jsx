@@ -1,15 +1,28 @@
 import { useState } from "react";
 import "./SearchForm.css";
 
-function SearchForm() {
+function SearchForm({ onSearch, onClose }) {
   const [searchQuery, setSearchQuery] = useState("");
+  const [error, setError] = useState("");
 
   const handleInputChange = (e) => {
     setSearchQuery(e.target.value);
+    if (error) setError("");
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!searchQuery.trim()) {
+      setError("Please enter a search term");
+      return;
+    }
+    setError("");
+    if (onSearch) onSearch(searchQuery);
+    if (onClose) onClose();
   };
 
   return (
-    <form className="search-form">
+    <form className="search-form" onSubmit={handleSubmit}>
       <input
         type="text"
         placeholder="Enter topic"
@@ -17,9 +30,8 @@ function SearchForm() {
         value={searchQuery}
         onChange={handleInputChange}
       />
-      <button type="submit" placeholder="search-button">
-        Search
-      </button>
+      {error && <p className="search-form__error">{error}</p>}
+      <button type="submit">Search</button>
     </form>
   );
 }
