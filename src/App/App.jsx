@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-// import About from "../About/About";
+import About from "../About/About";
 // import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import { useState } from "react";
@@ -12,9 +12,10 @@ import { useState } from "react";
 // import Preloader from "../Preloader/Preloader";
 // import RegisterModal from "../RegisterModal/RegisterModal";
 import SearchForm from "../SearchForm/SearchForm";
-import CurrentUserContext from "../../contexts/CurrentUserContext";
+//import CurrentUserContext from "../../contexts/CurrentUserContext";
 
 function App() {
+  //If logged in
   const [isLoggedIn, setLoggedIn] = useState(false);
   //SearchForm.jsx
   const [searchResults, setSearchResults] = useState([]);
@@ -32,6 +33,7 @@ function App() {
       <div className="app"></div>
       <div className="app__content">
         <Header isLoggedIn={isLoggedIn} />
+        <About></About>
       </div>
 
       <div>

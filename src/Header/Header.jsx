@@ -7,24 +7,24 @@ function Header({ isLoggedIn, handleSigninClick }) {
 
   return (
     <header className="header">
-      <div className="header__container">
-        <h1>News Explorer</h1>
+      <h1>News Explorer</h1>
+      {/* <div className="header__container">
         <div className="header__user-container">
           {!isLoggedIn ? (
             <div className="header__user">
-              <button
-                onClick={handleSigninClick}
-                type="button"
-                className="header__signIn"
-              >
-                Sign In
-              </button>
             </div>
           ) : null}
         </div>
-      </div>
+      </div> */}
       <nav>
         <a href="/">Home</a>
+        <button
+          onClick={handleSigninClick}
+          type="button"
+          className="header__signIn"
+        >
+          Sign In
+        </button>
         {isLoggedIn && <a href="/saved-articles">Saved Articles</a>}
         {/* <a href="/profile">{isLoggedIn ? "Sign out" : "Sign In"}</a> */}
       </nav>
