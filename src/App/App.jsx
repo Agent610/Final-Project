@@ -33,7 +33,6 @@ function App() {
       <div className="app"></div>
       <div className="app__content">
         <Header isLoggedIn={isLoggedIn} />
-        <About></About>
       </div>
 
       <div>
@@ -51,6 +50,7 @@ function App() {
           </ul>
         </div>
       </div>
+      <About></About>
     </>
   );
 }

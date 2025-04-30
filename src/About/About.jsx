@@ -1,6 +1,5 @@
 import React from "react";
 import "./About.css";
-//mport sistersBrotherPic from "../../images/Two beautiful sister + smart brother.png";
 import sistersBrotherPic from "../../images/sisters-brother-pic.png";
 
 function About() {
