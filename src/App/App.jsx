@@ -6,7 +6,7 @@ import Header from "../Header/Header";
 import { useState } from "react";
 // import LoginModal from "../LoginModal/LoginModal";
 //import Main from "../Main/Main";
-// import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import ModalWithForm from "../ModalWithForm/ModalWithForm";
 // import Navigation from "../Navigation/Navigation";
 // import NewsCard from "../NewsCard/NewsCard";
 // import Preloader from "../Preloader/Preloader";
