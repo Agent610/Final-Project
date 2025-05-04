@@ -20,34 +20,6 @@ const RegisterModal = ({ isOpen, onSubmit, onClose, handleSigninClick }) => {
   function handleFormSubmit(e) {
     e.preventDefault();
     onSubmit({ email, password, userName });
-
-    // const validateForm = () => {
-    //   let tempErrors = {};
-    //   let isValid = true;
-
-    //   if (!userName.trim()) {
-    //     tempErrors.userName = "Username is required";
-    //     isValid = false;
-    //   }
-
-    //   if (!email.trim()) {
-    //     tempErrors.email = "Email is required";
-    //   } else if (!/\S+@\S+.\S+/.test(email)) {
-    //     tempErrors.email = "Email is invalid";
-    //     isValid = false;
-    //   }
-
-    //   if (!password.trim()) {
-    //     tempErrors.password = "Password is required";
-    //     isValid = false;
-    //   } else if (password.length < 8) {
-    //     tempErrors.password = "Password must be at least 8 characters";
-    //     isValid = false;
-    //   }
-
-    //   setErrors(tempErrors);
-    //   return isValid;
-    // };
   }
 
   return (
@@ -106,3 +78,31 @@ const RegisterModal = ({ isOpen, onSubmit, onClose, handleSigninClick }) => {
   );
 };
 export default RegisterModal;
+
+// const validateForm = () => {
+//   let tempErrors = {};
+//   let isValid = true;
+
+//   if (!userName.trim()) {
+//     tempErrors.userName = "Username is required";
+//     isValid = false;
+//   }
+
+//   if (!email.trim()) {
+//     tempErrors.email = "Email is required";
+//   } else if (!/\S+@\S+.\S+/.test(email)) {
+//     tempErrors.email = "Email is invalid";
+//     isValid = false;
+//   }
+
+//   if (!password.trim()) {
+//     tempErrors.password = "Password is required";
+//     isValid = false;
+//   } else if (password.length < 8) {
+//     tempErrors.password = "Password must be at least 8 characters";
+//     isValid = false;
+//   }
+
+//   setErrors(tempErrors);
+//   return isValid;
+// };
