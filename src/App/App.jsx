@@ -1,18 +1,20 @@
 import React from "react";
 import "./App.css";
 import About from "../About/About";
-// import Footer from "../Footer/Footer";
+import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import { useState } from "react";
 // import LoginModal from "../LoginModal/LoginModal";
 //import Main from "../Main/Main";
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
+//import ModalWithForm from "../ModalWithForm/ModalWithForm";
 // import Navigation from "../Navigation/Navigation";
 // import NewsCard from "../NewsCard/NewsCard";
 // import Preloader from "../Preloader/Preloader";
 // import RegisterModal from "../RegisterModal/RegisterModal";
 import SearchForm from "../SearchForm/SearchForm";
 //import CurrentUserContext from "../../contexts/CurrentUserContext";
+import { Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   //If logged in
@@ -29,29 +31,40 @@ function App() {
   };
 
   return (
-    <>
-      <div className="app"></div>
-      <div className="app__content">
-        <Header isLoggedIn={isLoggedIn} />
-      </div>
+    <BrowserRouter>
+      <div className="app">
+        <div className="app__content">
+          <Header isLoggedIn={isLoggedIn} />
 
-      <div>
-        {showSearchForm ? (
-          <SearchForm onSearch={handleSearch} onClose={handleClose} />
-        ) : (
-          <button onClick={() => setShowSearchForm(true)}>Search</button>
-        )}
-        <div>
-          <h2>Search Results</h2>
-          <ul>
-            {searchResults.map((result, index) => (
-              <li key={index}>{result}</li>
-            ))}
-          </ul>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <div>
+                  {showSearchForm ? (
+                    <SearchForm onSearch={handleSearch} onClose={handleClose} />
+                  ) : (
+                    <button onClick={() => setShowSearchForm(true)}>
+                      Search
+                    </button>
+                  )}
+                  <div>
+                    <h2>Search Results</h2>
+                    <ul>
+                      {searchResults.map((result, index) => (
+                        <li key={index}>{result}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              }
+            />
+            <Route path="/about" element={<About />} />
+          </Routes>
+          <Footer></Footer>
         </div>
       </div>
-      <About></About>
-    </>
+    </BrowserRouter>
   );
 }
 

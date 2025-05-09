@@ -12,6 +12,9 @@ function Navigation() {
         <li>
           <Link to="/saved-news">Saved Articles</Link>
         </li>
+        <li>
+          <Link to="/about">About</Link>
+        </li>
       </ul>
     </nav>
   );
