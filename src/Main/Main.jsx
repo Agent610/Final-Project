@@ -76,7 +76,7 @@ function Main({ isLoggedIn }) {
 
   return (
     <main className="main">
-      <form onSubmit={handleSearch} className="search-form">
+      <form onSubmit={handleSearch} className="main__search-form">
         <input
           type="text"
           placeholder="Search news..."
@@ -86,7 +86,7 @@ function Main({ isLoggedIn }) {
         <button type="submit">Search</button>
       </form>
 
-      <section className="search-results">
+      <section className="main__search-results">
         {loading && <p>Loading...</p>}
         {error && <p>Error</p>}
         {articles.map((article, index) => (
@@ -104,7 +104,7 @@ function Main({ isLoggedIn }) {
           />
         ))}
       </section>
-      <section className="about">
+      <section className="main__about">
         <About />
       </section>
     </main>

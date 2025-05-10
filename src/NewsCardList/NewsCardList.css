@@ -26,3 +26,6 @@
 .newscard-list__show-more:hover {
   opacity: 0.8;
 }
+
+.newscard-list__no-results {
+}
