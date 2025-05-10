@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import "./Header.css";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
+import Navigation from "../Navigation/Navigation";
+import { Link } from "react-router-dom";
 
 function Header({ isLoggedIn, handleSigninClick }) {
   const currentUser = useContext(CurrentUserContext);
@@ -8,8 +10,11 @@ function Header({ isLoggedIn, handleSigninClick }) {
   return (
     <header className="header">
       <h1>News Explorer</h1>
-      <nav>
-        <a href="/">Home</a>
+      <li>
+        <Link to="/">Home</Link>
+      </li>
+      <Navigation isLoggedIn={!!currentUser} />
+      {!currentUser && (
         <button
           onClick={handleSigninClick}
           type="button"
@@ -17,8 +22,7 @@ function Header({ isLoggedIn, handleSigninClick }) {
         >
           Sign In
         </button>
-        {isLoggedIn && <a href="/saved-articles">Saved Articles</a>}
-      </nav>
+      )}
     </header>
   );
 }

@@ -7,7 +7,7 @@ import { useState } from "react";
 // import LoginModal from "../LoginModal/LoginModal";
 //import Main from "../Main/Main";
 //import ModalWithForm from "../ModalWithForm/ModalWithForm";
-// import Navigation from "../Navigation/Navigation";
+import Navigation from "../Navigation/Navigation";
 // import NewsCard from "../NewsCard/NewsCard";
 // import Preloader from "../Preloader/Preloader";
 // import RegisterModal from "../RegisterModal/RegisterModal";
@@ -15,6 +15,7 @@ import SearchForm from "../SearchForm/SearchForm";
 //import CurrentUserContext from "../../contexts/CurrentUserContext";
 import { Link } from "react-router-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import NewsCardList from "../NewsCardList/NewsCardList";
 
 function App() {
   //If logged in
@@ -22,10 +23,22 @@ function App() {
   //SearchForm.jsx
   const [searchResults, setSearchResults] = useState([]);
   const [showSearchForm, setShowSearchForm] = useState(true);
+
   const handleSearch = (query) => {
     console.log("Searching for:", query);
-    setSearchResults([`Result for "${query}"`]);
+    const mockArticles = [
+      {
+        title: `News about "${query}"`,
+        description: "Sample",
+        url: "https://Testing.com",
+        urlToImage: "https://via.image.com/300",
+        publishedAt: new Date().toISOString(),
+        source: { name: "Sample Source" },
+      },
+    ];
+    setSearchResults(mockArticles);
   };
+
   const handleClose = () => {
     setShowSearchForm(false);
   };
@@ -35,7 +48,7 @@ function App() {
       <div className="app">
         <div className="app__content">
           <Header isLoggedIn={isLoggedIn} />
-
+          <Navigation isLoggedIn={isLoggedIn} />
           <Routes>
             <Route
               path="/"
@@ -50,6 +63,7 @@ function App() {
                   )}
                   <div>
                     <h2>Search Results</h2>
+                    <NewsCardList articles={searchResults} />
                     <ul>
                       {searchResults.map((result, index) => (
                         <li key={index}>{result}</li>
