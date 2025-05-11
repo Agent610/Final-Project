@@ -50,6 +50,10 @@
 }
 
 @media screen and (max-width: 768px) {
+  .about {
+    margin-bottom: 64px;
+  }
+
   .about__image {
     width: 232px;
     height: 232px;
@@ -72,8 +76,8 @@
 
   .about__text {
     width: 424px;
-    height: 168px;
-    margin-left: -12%;
+    height: auto;
+    margin-left: 0;
   }
 }
 
