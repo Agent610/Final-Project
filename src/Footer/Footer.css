@@ -52,7 +52,7 @@
   gap: 15px;
   align-items: center;
   order: 3;
-  margin-left: 40px
+  margin-left: 40px;
 }
 
 .footer__icon:hover {
@@ -78,11 +78,11 @@
     order: 2;
   }
 
-  .footer__icons{
+  .footer__icons {
     order: 3;
   }
 
-  .footer__copyright{
+  .footer__copyright {
     order: 1;
   }
 }
@@ -133,4 +133,3 @@
     order: 3;
   }
 }
-/*Mobile icons and nav more up, Tablet is good 
