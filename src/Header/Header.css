@@ -2,8 +2,15 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 1440px;
+  height: 80px;
+  margin: 0 auto;
 }
 
-.header__signIn {
-  border: none;
+.header__logo {
+  position: relative;
+  z-index: 1001;
 }
+/* .header__signIn {
+  border: none;
+} */

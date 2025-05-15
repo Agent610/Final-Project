@@ -39,27 +39,39 @@ function Navigation({
       </button>
 
       {/*Mobile menu */}
-      {isMenuOpen && (
-        <div className="mobile-menu">
-          <ul className="mobile-menu__list">
-            <Link to="/" className="nav-list__link nav-list__link-home">
-              Home
-            </Link>
-            {!isLoggedIn && <SignInButton />}
-            {isLoggedIn && (
-              <>
-                <Link to="/saved-news" className="nav-list__link">
-                  Saved Articles
+      {window.innerWidth <= 320 && (
+        <div className={`mobile-menu ${isMenuOpen ? "mobile-menu-open" : ""}`}>
+          <div className="mobile-menu__content">
+            <ul className="mobile-menu__list">
+              <li className="nav-list__item">
+                <Link to="/" className="nav-list__link nav-list__link-home">
+                  Home
                 </Link>
-                <button
-                  className="nav-list__button"
-                  onClick={handleSignoutClick}
-                >
-                  {currentUser.name}
-                </button>
-              </>
-            )}
-          </ul>
+              </li>
+              {!isLoggedIn && (
+                <li className="nav-list__item">
+                  <SignInButton />
+                </li>
+              )}
+              {isLoggedIn && (
+                <>
+                  <li className="nav-list__item">
+                    <Link to="/saved-news" className="nav-list__link">
+                      Saved Articles
+                    </Link>
+                  </li>
+                  <li className="nav-list__item">
+                    <button
+                      className="nav-list__button"
+                      onClick={handleSignoutClick}
+                    >
+                      {currentUser.name}
+                    </button>
+                  </li>
+                </>
+              )}
+            </ul>
+          </div>
         </div>
       )}
 
@@ -70,10 +82,6 @@ function Navigation({
             Home
           </Link>
         </li>
-
-        {/* <button className="nav-list__button" onClick={handleSigninClick}>
-          Sign in
-        </button> */}
 
         {isLoggedIn ? (
           /* Logged in state */
