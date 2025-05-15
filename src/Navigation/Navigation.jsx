@@ -13,6 +13,12 @@ function Navigation({
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const SignInButton = () => (
+    <button className="nav-list__button" onClick={handleSigninClick}>
+      Sign in
+    </button>
+  );
+
   return (
     <nav className="navigation">
       <button className="hamburger-menu" onClick={toggleMenu}>
@@ -31,15 +37,33 @@ function Navigation({
           </>
         )}
       </button>
+
+      {/*Mobile menu */}
       {isMenuOpen && (
         <div className="mobile-menu">
           <ul className="mobile-menu__list">
             <Link to="/" className="nav-list__link nav-list__link-home">
               Home
             </Link>
+            {!isLoggedIn && <SignInButton />}
+            {isLoggedIn && (
+              <>
+                <Link to="/saved-news" className="nav-list__link">
+                  Saved Articles
+                </Link>
+                <button
+                  className="nav-list__button"
+                  onClick={handleSignoutClick}
+                >
+                  {currentUser.name}
+                </button>
+              </>
+            )}
           </ul>
         </div>
       )}
+
+      {/* Desktop Menu */}
       <ul className="nav-list">
         <li className="nav-list__item">
           <Link to="/" className="nav-list__link nav-list__link-home">
@@ -47,32 +71,29 @@ function Navigation({
           </Link>
         </li>
 
+        {/* <button className="nav-list__button" onClick={handleSigninClick}>
+          Sign in
+        </button> */}
+
         {isLoggedIn ? (
           /* Logged in state */
-          <>
-            <div className="nav-list__auth">
-              <li className="nav-list__item">
-                <Link to="/saved-news" className="nav-list__link">
-                  Saved Articles
-                </Link>
-              </li>
-              <li className="nav-list__item">
-                <button
-                  className="nav-list__button"
-                  onClick={handleSignoutClick}
-                >
-                  {currentUser.name}
-                </button>
-              </li>
-            </div>
-          </>
+          <div className="nav-list__auth">
+            <li className="nav-list__item">
+              <Link to="/saved-news" className="nav-list__link">
+                Saved Articles
+              </Link>
+            </li>
+            <li className="nav-list__item">
+              <button className="nav-list__button" onClick={handleSignoutClick}>
+                {currentUser.name}
+              </button>
+            </li>
+          </div>
         ) : (
           /* Logged out state */
           <div className="nav-list__auth">
             <li className="nav-list__item">
-              <button className="nav-list__button" onClick={handleSigninClick}>
-                Sign in
-              </button>
+              <SignInButton />
             </li>
           </div>
         )}

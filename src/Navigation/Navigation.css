@@ -23,7 +23,9 @@
   display: flex;
   align-items: center;
   gap: 32px;
+  margin: 0;
 }
+
 .nav-list__item {
   position: relative;
 }
@@ -102,7 +104,12 @@
   .navigation {
     justify-content: flex-end;
     height: 56px;
-    padding: 0 16px;
+    padding: 0px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    left: 0;
+    z-index: 100;
   }
 
   .nav-list {
@@ -112,8 +119,10 @@
   .hamburger-menu {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    height: 24px;
     gap: 8px;
-    padding: 16px 0;
+    padding: 0;
   }
 
   .hamburger-menu__line {
@@ -125,12 +134,24 @@
 
   .mobile-menu {
     position: fixed;
-    top: 56px;
+    top: 0;
     left: 0;
     right: 0;
-    background: white;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
     height: 100vh;
-    z-index: 100;
+    z-index: 1000;
+  }
+
+  .mobile-menu__content {
+    background-color: white;
+    height: 100vh;
+    position: relative;
+    padding-top: 16px;
+  }
+
+  .nav__logo {
+    z-index: 1001;
   }
 
   .mobile-menu__list {
@@ -139,13 +160,28 @@
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 22px;
+    align-items: center;
+    padding-top: 40px;
+  }
+
+  .mobile-menu__list .nav-list__link-home {
+    position: static;
+    left: auto;
+    top: auto;
+    color: #1a1b22;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 500;
   }
 
   .close-icon {
-    position: relative;
+    position: absolute;
+    top: 16px;
+    right: 16px;
     width: 24px;
     height: 24px;
+    z-index: 1002;
   }
 
   .close-icon__line {
