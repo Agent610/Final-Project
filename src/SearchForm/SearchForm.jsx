@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./SearchForm.css";
 
-function SearchForm({ onSearch, onClose }) {
+function SearchForm({ onSearch }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [error, setError] = useState("");
 
@@ -17,8 +17,7 @@ function SearchForm({ onSearch, onClose }) {
       return;
     }
     setError("");
-    if (onSearch) onSearch(searchQuery);
-    if (onClose) onClose();
+    onSearch(searchQuery);
   };
 
   return (

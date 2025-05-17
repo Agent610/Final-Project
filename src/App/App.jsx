@@ -4,13 +4,13 @@ import About from "../About/About";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import { useState } from "react";
-// import LoginModal from "../LoginModal/LoginModal";
+import LoginModal from "../LoginModal/LoginModal";
 //import Main from "../Main/Main";
-//import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import Navigation from "../Navigation/Navigation";
 // import NewsCard from "../NewsCard/NewsCard";
 // import Preloader from "../Preloader/Preloader";
-// import RegisterModal from "../RegisterModal/RegisterModal";
+import RegisterModal from "../RegisterModal/RegisterModal";
 import SearchForm from "../SearchForm/SearchForm";
 //import CurrentUserContext from "../../contexts/CurrentUserContext";
 import { Link } from "react-router-dom";
@@ -23,6 +23,35 @@ function App() {
   //SearchForm.jsx
   const [searchResults, setSearchResults] = useState([]);
   const [showSearchForm, setShowSearchForm] = useState(true);
+  //LoginModal.jsx
+
+  // try to incorporate this logic instead of individual states and functions for specific modals.
+  // for example you are doing separate functionalty to show login modal and register modal.
+  // const [activeModal, setActiveModal] = useState("");
+  // const handleActiveModal =(modal) => {
+  //   setActiveModal(modal)
+  // }
+  // const handleCloseModal = () => {
+  //   setActiveModal("")
+  // }
+
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const handleLoginModalOpen = () => {
+    setIsLoginModalOpen(true);
+    setIsRegisterModalOpen(false);
+  };
+
+  //RegisterModal.jsx
+  const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
+  const handleRegisterModalOpen = () => {
+    setIsRegisterModalOpen(true);
+    setIsLoginModalOpen(false);
+  };
+
+  const closeModal = () => {
+    setIsLoginModalOpen(false);
+    setIsRegisterModalOpen(false);
+  };
 
   const handleSearch = (query) => {
     console.log("Searching for:", query);
@@ -37,25 +66,37 @@ function App() {
       },
     ];
     setSearchResults(mockArticles);
+    setShowSearchForm(false);
   };
 
-  const handleClose = () => {
-    setShowSearchForm(false);
+  // const handleClose = () => {
+  //   setShowSearchForm(false);
+  // };
+
+  const handleLogin = ({ email, password }) => {
+    // fire "fake" api functionality to simulate signin.
+  };
+
+  const handleRegister = ({ email, password, userName }) => {
+    // fire "fake" api functionality to simulate register
   };
 
   return (
     <BrowserRouter>
       <div className="app">
         <div className="app__content">
-          <Header isLoggedIn={isLoggedIn} />
-          <Navigation isLoggedIn={isLoggedIn} />
+          <Header
+            isLoggedIn={isLoggedIn}
+            //currentUser={currentUser}
+            handleSigninClick={handleLoginModalOpen}
+          />
           <Routes>
             <Route
               path="/"
               element={
                 <div>
                   {showSearchForm ? (
-                    <SearchForm onSearch={handleSearch} onClose={handleClose} />
+                    <SearchForm onSearch={handleSearch} />
                   ) : (
                     <button onClick={() => setShowSearchForm(true)}>
                       Search
@@ -76,6 +117,17 @@ function App() {
             <Route path="/about" element={<About />} />
           </Routes>
           <Footer></Footer>
+
+          <LoginModal
+            isOpen={isLoginModalOpen}
+            onClose={closeModal}
+            handleSignupClick={handleRegisterModalOpen}
+          />
+          <RegisterModal
+            isOpen={isRegisterModalOpen}
+            onClose={closeModal}
+            handleSigninClick={handleLoginModalOpen}
+          />
         </div>
       </div>
     </BrowserRouter>
@@ -83,3 +135,31 @@ function App() {
 }
 
 export default App;
+
+//Escape button
+// function closeWithEsc(event) {
+//   if (event.key === "Escape") {
+//     const modal = document.querySelector(".modal_opened");
+//     closeModal(modal);
+//   }
+// }
+
+// function closeModalOnRemoteClick(event) {
+//   if (event.target === event.currentTarget) {
+//     closeModal(event.currentTarget);
+//   }
+// }
+
+// function openModal(modal) {
+//   // add class to modal
+//   document.addEventListener("keydown", closeWithEsc);
+//   modal.addEventListener("mousedown", closeModalOnRemoteClick);
+//   modal.classList.add("modal_opened");
+// }
+
+// function closeModal(modal) {
+//   //remove class from modal
+//   document.removeEventListener("keydown", closeWithEsc);
+//   modal.removeEventListener("mousedown", closeModalOnRemoteClick);
+//   modal.classList.remove("modal_opened");
+// }
