@@ -15,42 +15,60 @@ const LoginModal = ({ isOpen, onSubmit, onClose, handleSignupClick }) => {
   }
 
   return (
-    <ModalWithForm
-      title="Sign in"
-      buttonText="Sign in"
-      isOpen={isOpen}
-      onClose={onClose}
-      onSubmit={handleFormSubmit}
-    >
-      <label htmlFor="login-email" className="modal__label">
-        Email{""}
-        <input
-          type="email"
-          className="modal__input"
-          id="login-email"
-          placeholder="Enter email"
-          onChange={handleEmailOnChange}
-          value={email}
-          required
-        />
-      </label>
-      <label htmlFor="login-password" className="modal__label">
-        Password{""}
-        <input
-          type="password"
-          className="modal__input"
-          id="login-password"
-          placeholder="Enter password"
-          onChange={handlePasswordOnChange}
-          value={password}
-          required
-        />
-      </label>
-      <button type="button" className="login__link" onClick={handleSignupClick}>
-        or Sign up
-      </button>
-    </ModalWithForm>
+    <div>
+      <ModalWithForm
+        title="Sign in"
+        buttonText="Sign in"
+        isOpen={isOpen}
+        onClose={onClose}
+        onSubmit={handleFormSubmit}
+        extraActions={
+          <button
+            type="button"
+            className="login__link"
+            onClick={handleSignupClick}
+          >
+            or Sign up
+          </button>
+        }
+      >
+        <label htmlFor="login-email" className="modal__label">
+          Email
+          <input
+            type="email"
+            className="modal__input"
+            id="login-email"
+            placeholder="Enter email"
+            onChange={handleEmailOnChange}
+            value={email}
+            required
+          />
+        </label>
+        <label htmlFor="login-password" className="modal__label">
+          Password
+          <input
+            type="password"
+            className="modal__input"
+            id="login-password"
+            placeholder="Enter password"
+            onChange={handlePasswordOnChange}
+            value={password}
+            required
+          />
+        </label>
+      </ModalWithForm>
+    </div>
   );
 };
 
 export default LoginModal;
+
+// {isOpen && (
+//   <button
+//     type="button"
+//     className="login__link"
+//     onClick={handleSignupClick}
+//   >
+//     or Sign up
+//   </button>
+// )}

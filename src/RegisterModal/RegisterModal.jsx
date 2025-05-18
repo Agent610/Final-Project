@@ -6,12 +6,6 @@ const RegisterModal = ({ isOpen, onSubmit, onClose, handleSigninClick }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [userName, setUserName] = useState("");
-  //errors
-  const [errors, setErrors] = useState({
-    email: "",
-    password: "",
-    userName: "",
-  });
 
   const handleEmailOnChange = (e) => setEmail(e.target.value);
   const handlePasswordOnChange = (e) => setPassword(e.target.value);

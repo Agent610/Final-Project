@@ -23,35 +23,42 @@ function App() {
   //SearchForm.jsx
   const [searchResults, setSearchResults] = useState([]);
   const [showSearchForm, setShowSearchForm] = useState(true);
-  //LoginModal.jsx
 
-  // try to incorporate this logic instead of individual states and functions for specific modals.
-  // for example you are doing separate functionalty to show login modal and register modal.
-  // const [activeModal, setActiveModal] = useState("");
-  // const handleActiveModal =(modal) => {
-  //   setActiveModal(modal)
-  // }
-  // const handleCloseModal = () => {
-  //   setActiveModal("")
-  // }
-
-  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
-  const handleLoginModalOpen = () => {
-    setIsLoginModalOpen(true);
-    setIsRegisterModalOpen(false);
+  //Modals
+  const [activeModal, setActiveModal] = useState("");
+  const handleActiveModal = (modal) => {
+    setActiveModal(modal);
+  };
+  const handleCloseModal = () => {
+    setActiveModal("");
   };
 
-  //RegisterModal.jsx
-  const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
-  const handleRegisterModalOpen = () => {
-    setIsRegisterModalOpen(true);
-    setIsLoginModalOpen(false);
-  };
+  // React.useEffect(() => {
+  //   if (activeModal) {
+  //     // Handle Escape Key
+  //     const handleEscape = (event) => {
+  //       if (event.key === "Escape") {
+  //         handleCloseModal();
+  //       }
+  //     };
 
-  const closeModal = () => {
-    setIsLoginModalOpen(false);
-    setIsRegisterModalOpen(false);
-  };
+  //     // Handle click outside key
+  //     const handleClickOutside = (event) => {
+  //       if (event.target.classList.contains("modal")) {
+  //         handleCloseModal();
+  //       }
+  //     };
+
+  //     // Event Listenters
+  //     document.addEventListener("keydown", handleEscape);
+  //     document.addEventListener("mousedown", handleClickOutside);
+
+  //     return () => {
+  //       document.removeEventListener("keydown", handleEscape);
+  //       document.removeEventListener("mousedown", handleClickOutside);
+  //     };
+  //   }
+  // }, [activeModal]);
 
   const handleSearch = (query) => {
     console.log("Searching for:", query);
@@ -69,10 +76,6 @@ function App() {
     setShowSearchForm(false);
   };
 
-  // const handleClose = () => {
-  //   setShowSearchForm(false);
-  // };
-
   const handleLogin = ({ email, password }) => {
     // fire "fake" api functionality to simulate signin.
   };
@@ -88,7 +91,7 @@ function App() {
           <Header
             isLoggedIn={isLoggedIn}
             //currentUser={currentUser}
-            handleSigninClick={handleLoginModalOpen}
+            handleSigninClick={() => handleActiveModal("login")}
           />
           <Routes>
             <Route
@@ -119,14 +122,14 @@ function App() {
           <Footer></Footer>
 
           <LoginModal
-            isOpen={isLoginModalOpen}
-            onClose={closeModal}
-            handleSignupClick={handleRegisterModalOpen}
+            isOpen={activeModal === "login"}
+            onClose={handleCloseModal}
+            handleSignupClick={() => handleActiveModal("register")}
           />
           <RegisterModal
-            isOpen={isRegisterModalOpen}
-            onClose={closeModal}
-            handleSigninClick={handleLoginModalOpen}
+            isOpen={activeModal === "register"}
+            onClose={handleCloseModal}
+            handleSigninClick={() => handleActiveModal("login")}
           />
         </div>
       </div>
