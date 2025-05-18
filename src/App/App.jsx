@@ -27,6 +27,7 @@ function App() {
   //Modals
   const [activeModal, setActiveModal] = useState("");
   const handleActiveModal = (modal) => {
+    console.log("modal being set to open", modal);
     setActiveModal(modal);
   };
   const handleCloseModal = () => {
@@ -123,11 +124,13 @@ function App() {
 
           <LoginModal
             isOpen={activeModal === "login"}
+            onSubmit={handleLogin}
             onClose={handleCloseModal}
             handleSignupClick={() => handleActiveModal("register")}
           />
           <RegisterModal
             isOpen={activeModal === "register"}
+            onSubmit={handleRegister}
             onClose={handleCloseModal}
             handleSigninClick={() => handleActiveModal("login")}
           />

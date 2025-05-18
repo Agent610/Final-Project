@@ -21,6 +21,15 @@
   border-radius: 1px;
   border: none;
   border-bottom: 1px solid;
-
   padding: 8px;
+}
+
+@media screen and (max-width: 320px) {
+  .login__link {
+    margin-left: 20px;
+  }
+
+  .modal__input {
+    height: 40px;
+  }
 }
