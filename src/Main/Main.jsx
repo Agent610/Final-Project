@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./Main.css";
 import NewsCard from "../NewsCard/NewsCard.jsx";
-import About from "../About/About.jsx";
+//import About from "../About/About.jsx";
 
-function Main({ isLoggedIn }) {
+function Main({ isLoggedIn, children }) {
   const [articles, setArticles] = useState([]);
-  const [searchTerm, setSearchTerm] = useState([]);
+  //const [searchTerm, setSearchTerm] = useState([]);
   const [loading, setLoading] = useState([]);
   const [error, setError] = useState([]);
 
@@ -37,12 +37,12 @@ function Main({ isLoggedIn }) {
     setLoading(false);
   };
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    if (searchTerm.trim() !== "") {
-      fetchArticles(searchTerm);
-    }
-  };
+  // const handleSearch = (e) => {
+  //   e.preventDefault();
+  //   if (searchTerm.trim() !== "") {
+  //     fetchArticles(searchTerm);
+  //   }
+  // };
 
   useEffect(() => {
     const saved = localStorage.getItem("savedArticles");
@@ -75,8 +75,8 @@ function Main({ isLoggedIn }) {
   };
 
   return (
-    <main className="main">
-      <form onSubmit={handleSearch} className="main__search-form">
+    <div className="main">
+      {/* <form onSubmit={handleSearch} className="main__search-form">
         <input
           type="text"
           placeholder="Search news..."
@@ -84,7 +84,9 @@ function Main({ isLoggedIn }) {
           onChange={(e) => setSearchTerm(e.target.value)}
         />
         <button type="submit">Search</button>
-      </form>
+      </form> */}
+
+      <div className="main__children">{children}</div>
 
       <section className="main__search-results">
         {loading && <p>Loading...</p>}
@@ -104,10 +106,11 @@ function Main({ isLoggedIn }) {
           />
         ))}
       </section>
-      <section className="main__about">
+
+      {/* <section className="main__about">
         <About />
-      </section>
-    </main>
+      </section> */}
+    </div>
   );
 }
 export default Main;

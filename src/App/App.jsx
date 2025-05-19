@@ -5,10 +5,10 @@ import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import { useState } from "react";
 import LoginModal from "../LoginModal/LoginModal";
-//import Main from "../Main/Main";
+import Main from "../Main/Main";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import Navigation from "../Navigation/Navigation";
-// import NewsCard from "../NewsCard/NewsCard";
+import NewsCard from "../NewsCard/NewsCard";
 // import Preloader from "../Preloader/Preloader";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import SearchForm from "../SearchForm/SearchForm";
@@ -34,32 +34,32 @@ function App() {
     setActiveModal("");
   };
 
-  // React.useEffect(() => {
-  //   if (activeModal) {
-  //     // Handle Escape Key
-  //     const handleEscape = (event) => {
-  //       if (event.key === "Escape") {
-  //         handleCloseModal();
-  //       }
-  //     };
+  React.useEffect(() => {
+    if (activeModal) {
+      // Handle Escape Key
+      const handleEscape = (event) => {
+        if (event.key === "Escape") {
+          handleCloseModal();
+        }
+      };
 
-  //     // Handle click outside key
-  //     const handleClickOutside = (event) => {
-  //       if (event.target.classList.contains("modal")) {
-  //         handleCloseModal();
-  //       }
-  //     };
+      // Handle click outside key
+      const handleClickOutside = (event) => {
+        if (event.target.classList.contains("modal")) {
+          handleCloseModal();
+        }
+      };
 
-  //     // Event Listenters
-  //     document.addEventListener("keydown", handleEscape);
-  //     document.addEventListener("mousedown", handleClickOutside);
+      // Event Listenters
+      document.addEventListener("keydown", handleEscape);
+      document.addEventListener("mousedown", handleClickOutside);
 
-  //     return () => {
-  //       document.removeEventListener("keydown", handleEscape);
-  //       document.removeEventListener("mousedown", handleClickOutside);
-  //     };
-  //   }
-  // }, [activeModal]);
+      return () => {
+        document.removeEventListener("keydown", handleEscape);
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }
+  }, [activeModal]);
 
   const handleSearch = (query) => {
     console.log("Searching for:", query);
@@ -94,32 +94,34 @@ function App() {
             //currentUser={currentUser}
             handleSigninClick={() => handleActiveModal("login")}
           />
-          <Routes>
-            <Route
-              path="/"
-              element={
-                <div>
-                  {showSearchForm ? (
-                    <SearchForm onSearch={handleSearch} />
-                  ) : (
-                    <button onClick={() => setShowSearchForm(true)}>
-                      Search
-                    </button>
-                  )}
+          <Main isLoggedIn={isLoggedIn}>
+            <Routes>
+              <Route
+                path="/"
+                element={
                   <div>
-                    <h2>Search Results</h2>
-                    <NewsCardList articles={searchResults} />
-                    <ul>
-                      {searchResults.map((result, index) => (
-                        <li key={index}>{result}</li>
-                      ))}
-                    </ul>
+                    {showSearchForm ? (
+                      <SearchForm onSearch={handleSearch} />
+                    ) : (
+                      <button onClick={() => setShowSearchForm(true)}>
+                        Search
+                      </button>
+                    )}
+                    <div>
+                      <h2>Search Results</h2>
+                      <NewsCardList articles={searchResults} />
+                      <ul>
+                        {searchResults.map((result, index) => (
+                          <li key={index}>{result}</li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-                </div>
-              }
-            />
-            <Route path="/about" element={<About />} />
-          </Routes>
+                }
+              />
+              <Route path="/about" element={<About />} />
+            </Routes>
+          </Main>
           <Footer></Footer>
 
           <LoginModal
@@ -141,31 +143,3 @@ function App() {
 }
 
 export default App;
-
-//Escape button
-// function closeWithEsc(event) {
-//   if (event.key === "Escape") {
-//     const modal = document.querySelector(".modal_opened");
-//     closeModal(modal);
-//   }
-// }
-
-// function closeModalOnRemoteClick(event) {
-//   if (event.target === event.currentTarget) {
-//     closeModal(event.currentTarget);
-//   }
-// }
-
-// function openModal(modal) {
-//   // add class to modal
-//   document.addEventListener("keydown", closeWithEsc);
-//   modal.addEventListener("mousedown", closeModalOnRemoteClick);
-//   modal.classList.add("modal_opened");
-// }
-
-// function closeModal(modal) {
-//   //remove class from modal
-//   document.removeEventListener("keydown", closeWithEsc);
-//   modal.removeEventListener("mousedown", closeModalOnRemoteClick);
-//   modal.classList.remove("modal_opened");
-// }

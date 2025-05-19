@@ -2,37 +2,40 @@
 
 // const token = localStorage.getItem("jwt");
 
-// function getItems() {
-//   return new Promise((resolve, reject) =>
-//     resolve([
-//       {
-//         _id: "65f7368dfb74bd6a92114c85",
-//         title: "Some news article",
-//         url: "put some actual article URL here",
-//       },
-//       {},
-//     ])
-//   );
-// }
+//Getting the article(s)
+export function getItems() {
+  return new Promise((resolve) => {
+    const saved = localStorage.getItem("savedArticles");
+    const items = saved ? JSON.parse(saved) : [];
+    resolve(items);
+  });
+}
 
-// function saveArticle(article) {
-//   return new Promise((resolve, reject) => {
-//     resolve({
-//       _id: "65f7371e7bce9e7d331b11a0",
-//       url: article,
-//       url,
-//       title: article.title,
-//       imageUrl: article.imagUrl,
-//     });
-//   });
-// }
+//Saving article
+export function saveArticle(article) {
+  return new Promise((resolve) => {
+    const existing = JSON.parse(localStorage.getItem("savedArticles")) || [];
 
-// const api = {
-//   getItems,
-//   saveArticle,
-// };
+    const newArticle = {
+      ...article,
+      _id: crypto.randomUUID(),
+      savedAt: new Date().toISOString(),
+    };
+    existing.push(newArticle);
+    localStorage.setItem("savedArticles", JSON.stringify(existing));
+    resolve(newArticle);
+  });
+}
 
-// export default api;
+// Deleting article
+export function deleteArticle(articleId) {
+  return new Promise((resolve) => {
+    let items = JSON.parse(localStorage.getItem("savedArticles")) || [];
+    items = items.filter((item) => item._id !== articleId);
+    localStorage.setItem("savedArticles", JSON.stringify(items));
+    resolve({ message: "Article was deleted", articleId });
+  });
+}
 
 // export function handleServerResponse(res) {
 //   if (res.ok) {
@@ -40,3 +43,11 @@
 //   }
 //   return Promise.reject(`Error: ${res.status}`);
 // }
+
+const api = {
+  getItems,
+  saveArticle,
+  deleteArticle,
+};
+
+export default api;
