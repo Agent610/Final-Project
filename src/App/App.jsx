@@ -61,14 +61,15 @@ function App() {
     }
   }, [activeModal]);
 
+  //Article work
   const handleSearch = (query) => {
     console.log("Searching for:", query);
     const mockArticles = [
       {
         title: `News about "${query}"`,
-        description: "Sample",
+        summary: "Sample",
         url: "https://Testing.com",
-        urlToImage: "https://via.image.com/300",
+        urlToImage: "https://placehold.co/600x400",
         publishedAt: new Date().toISOString(),
         source: { name: "Sample Source" },
       },
@@ -76,6 +77,29 @@ function App() {
     setSearchResults(mockArticles);
     setShowSearchForm(false);
   };
+
+  const [savedArticles, setSavedArticles] = useState([]);
+  const handleSaveArticle = (title, link, summary, source, image) => {
+    const alreadySaved = savedArticles.some((article) => article.url === link);
+
+    if (alreadySaved) {
+      setSavedArticles((prev) =>
+        prev.filter((article) => article.url !== link)
+      );
+    } else {
+      setSavedArticles((prev) => [
+        ...prev,
+        {
+          title,
+          url: link,
+          summary: summary,
+          source: { name: source },
+          urlToImage: image,
+        },
+      ]);
+    }
+  };
+  //Authentication
 
   const handleLogin = ({ email, password }) => {
     // fire "fake" api functionality to simulate signin.
@@ -109,12 +133,17 @@ function App() {
                     )}
                     <div>
                       <h2>Search Results</h2>
-                      <NewsCardList articles={searchResults} />
-                      <ul>
+                      <NewsCardList
+                        articles={searchResults}
+                        isLoggedIn={isLoggedIn}
+                        onSaveArticle={handleSaveArticle}
+                        savedArticles={savedArticles}
+                      />
+                      {/* <ul>
                         {searchResults.map((result, index) => (
                           <li key={index}>{result}</li>
                         ))}
-                      </ul>
+                      </ul> */}
                     </div>
                   </div>
                 }
