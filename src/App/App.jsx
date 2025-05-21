@@ -16,6 +16,8 @@ import SearchForm from "../SearchForm/SearchForm";
 import { Link } from "react-router-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NewsCardList from "../NewsCardList/NewsCardList";
+import { login } from "../../utils/auth";
+import { register } from "../../utils/auth";
 
 function App() {
   //If logged in
@@ -101,12 +103,27 @@ function App() {
   };
   //Authentication
 
-  const handleLogin = ({ email, password }) => {
-    // fire "fake" api functionality to simulate signin.
+  const handleLogin = async ({ email, password }) => {
+    try {
+      const response = await login(email, password);
+      if (response.token) {
+        setLoggedIn(true);
+        handleCloseModal();
+      }
+    } catch (error) {
+      console.error("Login failed", error);
+    }
   };
 
-  const handleRegister = ({ email, password, userName }) => {
-    // fire "fake" api functionality to simulate register
+  const handleRegister = async ({ email, password, userName }) => {
+    try {
+      const response = await register(email, password, userName);
+      if (response.message) {
+        handleActiveModal("login");
+      }
+    } catch (error) {
+      console.error("Registration failed", error);
+    }
   };
 
   return (

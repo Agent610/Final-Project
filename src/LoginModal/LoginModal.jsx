@@ -5,13 +5,23 @@ import "./LoginModal.css";
 const LoginModal = ({ isOpen, onSubmit, onClose, handleSignupClick }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleEmailOnChange = (e) => setEmail(e.target.value);
   const handlePasswordOnChange = (e) => setPassword(e.target.value);
 
-  function handleFormSubmit(e) {
+  async function handleFormSubmit(e) {
     e.preventDefault();
-    onSubmit({ email, password });
+    setIsLoading(true);
+    try {
+      await onSubmit({ email, password });
+    } catch (error) {
+      setError(error.message || "An error occured during login");
+      console.error(error);
+    } finally {
+      setIsLoading(false);
+    }
   }
 
   return (
@@ -20,8 +30,12 @@ const LoginModal = ({ isOpen, onSubmit, onClose, handleSignupClick }) => {
         title="Sign in"
         buttonText="Sign in"
         isOpen={isOpen}
-        onClose={onClose}
+        onClose={() => {
+          setError("");
+          onClose();
+        }}
         onSubmit={handleFormSubmit}
+        isLoading={isLoading}
         extraActions={
           <button
             type="button"
@@ -32,6 +46,7 @@ const LoginModal = ({ isOpen, onSubmit, onClose, handleSignupClick }) => {
           </button>
         }
       >
+        {error && <p className="modal__error">{error}</p>}
         <label htmlFor="login-email" className="modal__label">
           Email
           <input
@@ -62,13 +77,3 @@ const LoginModal = ({ isOpen, onSubmit, onClose, handleSignupClick }) => {
 };
 
 export default LoginModal;
-
-// {isOpen && (
-//   <button
-//     type="button"
-//     className="login__link"
-//     onClick={handleSignupClick}
-//   >
-//     or Sign up
-//   </button>
-// )}
