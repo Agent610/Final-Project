@@ -24,9 +24,7 @@ function ModalWithForm({
           }}
         >
           {children}
-          <button type="submit" className="modal__submit">
-            {buttonText}
-          </button>
+
           {extraActions && (
             <div className="modal__extra-actions">{extraActions}</div>
           )}

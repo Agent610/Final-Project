@@ -16,8 +16,7 @@ import SearchForm from "../SearchForm/SearchForm";
 import { Link } from "react-router-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NewsCardList from "../NewsCardList/NewsCardList";
-import { login } from "../../utils/auth";
-import { register } from "../../utils/auth";
+import { getToken, login, register, removeToken } from "../../utils/auth";
 
 function App() {
   //If logged in
@@ -28,10 +27,7 @@ function App() {
 
   //Modals
   const [activeModal, setActiveModal] = useState("");
-  const handleActiveModal = (modal) => {
-    console.log("modal being set to open", modal);
-    setActiveModal(modal);
-  };
+
   const handleCloseModal = () => {
     setActiveModal("");
   };
@@ -113,6 +109,7 @@ function App() {
     try {
       const response = await login(email, password);
       if (response.token) {
+        setToken(response.token);
         setLoggedIn(true);
         handleCloseModal();
       }
@@ -128,16 +125,21 @@ function App() {
     try {
       const response = await register(email, password, userName);
       if (response.message) {
-        handleActiveModal("registerSuccess");
+        setActiveModal("registerSuccess");
       }
       setTimeout(() => {
-        handleActiveModal("login");
+        setActiveModal("login");
       }, 2000);
     } catch (error) {
       console.error("Registration failed", error);
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const handleSignoutClick = () => {
+    removeToken();
+    setLoggedIn(false);
   };
 
   //Preloader
@@ -151,7 +153,8 @@ function App() {
           <Header
             isLoggedIn={isLoggedIn}
             //currentUser={currentUser}
-            handleSigninClick={() => handleActiveModal("login")}
+            handleSigninClick={() => setActiveModal("login")}
+            handleSignoutClick={handleSignoutClick}
           />
           <Main isLoggedIn={isLoggedIn}>
             <Routes>
@@ -192,13 +195,13 @@ function App() {
             isOpen={activeModal === "login"}
             onSubmit={handleLogin}
             onClose={handleCloseModal}
-            handleSignupClick={() => handleActiveModal("register")}
+            handleSignupClick={() => setActiveModal("register")}
           />
           <RegisterModal
             isOpen={activeModal === "register"}
             onSubmit={handleRegister}
             onClose={handleCloseModal}
-            handleSigninClick={() => handleActiveModal("login")}
+            handleSigninClick={() => setActiveModal("login")}
           />
         </div>
       </div>
