@@ -9,7 +9,7 @@ import Main from "../Main/Main";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import Navigation from "../Navigation/Navigation";
 import NewsCard from "../NewsCard/NewsCard";
-// import Preloader from "../Preloader/Preloader";
+import Preloader from "../Preloader/Preloader";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import SearchForm from "../SearchForm/SearchForm";
 //import CurrentUserContext from "../../contexts/CurrentUserContext";
@@ -66,18 +66,23 @@ function App() {
   //Article work
   const handleSearch = (query) => {
     console.log("Searching for:", query);
-    const mockArticles = [
-      {
-        title: `News about "${query}"`,
-        summary: "Sample",
-        url: "https://Testing.com",
-        urlToImage: "https://placehold.co/600x400",
-        publishedAt: new Date().toISOString(),
-        source: { name: "Sample Source" },
-      },
-    ];
-    setSearchResults(mockArticles);
-    setShowSearchForm(false);
+    setIsLoading(true);
+
+    setTimeout(() => {
+      const mockArticles = [
+        {
+          title: `News about "${query}"`,
+          summary: "Sample",
+          url: "https://Testing.com",
+          urlToImage: "https://placehold.co/600x400",
+          publishedAt: new Date().toISOString(),
+          source: { name: "Sample Source" },
+        },
+      ];
+      setSearchResults(mockArticles);
+      setShowSearchForm(false);
+      setIsLoading(false);
+    }, 2000);
   };
 
   const [savedArticles, setSavedArticles] = useState([]);
@@ -104,6 +109,7 @@ function App() {
   //Authentication
 
   const handleLogin = async ({ email, password }) => {
+    setIsLoading(true);
     try {
       const response = await login(email, password);
       if (response.token) {
@@ -112,23 +118,35 @@ function App() {
       }
     } catch (error) {
       console.error("Login failed", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   const handleRegister = async ({ email, password, userName }) => {
+    setIsLoading(true);
     try {
       const response = await register(email, password, userName);
       if (response.message) {
-        handleActiveModal("login");
+        handleActiveModal("registerSuccess");
       }
+      setTimeout(() => {
+        handleActiveModal("login");
+      }, 2000);
     } catch (error) {
       console.error("Registration failed", error);
+    } finally {
+      setIsLoading(false);
     }
   };
+
+  //Preloader
+  const [isLoading, setIsLoading] = useState(false);
 
   return (
     <BrowserRouter>
       <div className="app">
+        {isLoading && <Preloader />}
         <div className="app__content">
           <Header
             isLoggedIn={isLoggedIn}

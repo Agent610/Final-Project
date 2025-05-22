@@ -1,26 +1,24 @@
-// import { baseUrl } from "./api";
-// import { handleServerResponse } from "./api";
+import { baseUrl } from "./api";
+import { handleServerResponse } from "./api";
 
 export const login = (email, password) => {
-  return new Promise((resolve, reject) => {
-    if (email && password) {
-      const token = "token";
-      localStorage.setItem("jwt", token);
-      resolve({ token });
-    } else {
-      reject("Incorrect authorization");
-    }
-  });
+  return fetch(`${baseUrl}/login`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ email, password }),
+  }).then(handleServerResponse);
 };
 
 export const register = (email, password, userName) => {
-  return new Promise((resolve, reject) => {
-    if (email && password && userName) {
-      resolve({ message: "User was successfully registered" });
-    } else {
-      reject("Error cannot register the User please try again");
-    }
-  });
+  return fetch(`${baseUrl}/register`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ email, password, userName }),
+  }).then(handleServerResponse);
 };
 
 export const checkToken = (token) => {

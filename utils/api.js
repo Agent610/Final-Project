@@ -1,6 +1,13 @@
-// export const baseUrl = "https://localhost:3000";
+export const baseUrl = "https://localhost:3000";
 
-// const token = localStorage.getItem("jwt");
+const token = localStorage.getItem("jwt");
+
+export function handleServerResponse(res) {
+  if (res.ok) {
+    return res.json();
+  }
+  return Promise.reject(`Error: ${res.status}`);
+}
 
 //Getting the article(s)
 export function getItems() {
@@ -36,13 +43,6 @@ export function deleteArticle(articleId) {
     resolve({ message: "Article was deleted", articleId });
   });
 }
-
-// export function handleServerResponse(res) {
-//   if (res.ok) {
-//     return res.json();
-//   }
-//   return Promise.reject(`Error: ${res.status}`);
-// }
 
 const api = {
   getItems,
