@@ -26,7 +26,7 @@ function NewsCardList({ articles, isLoggedIn, onSaveArticle, savedArticles }) {
             <NewsCard
               key={article.url}
               title={article.title}
-              summary={article.summary}
+              description={article.description}
               date={new Date(article.publishedAt).toLocaleDateString()}
               source={article.source.name}
               link={article.url}
@@ -51,7 +51,7 @@ NewsCardList.propTypes = {
   articles: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
-      summary: PropTypes.string,
+      description: PropTypes.string,
       publishedAt: PropTypes.string,
       source: PropTypes.shape({ name: PropTypes.string }),
       url: PropTypes.string,

@@ -17,6 +17,12 @@ import { Link } from "react-router-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NewsCardList from "../NewsCardList/NewsCardList";
 import { getToken, login, register, removeToken } from "../../utils/auth";
+import {
+  getItems,
+  saveArticle,
+  deleteArticle,
+  searchNews,
+} from "../../utils/api";
 
 function App() {
   //If logged in
@@ -24,6 +30,7 @@ function App() {
   //SearchForm.jsx
   const [searchResults, setSearchResults] = useState([]);
   const [showSearchForm, setShowSearchForm] = useState(true);
+  const [message, setMessage] = useState("");
 
   //Modals
   const [activeModal, setActiveModal] = useState("");
@@ -60,25 +67,18 @@ function App() {
   }, [activeModal]);
 
   //Article work
-  const handleSearch = (query) => {
-    console.log("Searching for:", query);
-    setIsLoading(true);
-
-    setTimeout(() => {
-      const mockArticles = [
-        {
-          title: `News about "${query}"`,
-          summary: "Sample",
-          url: "https://Testing.com",
-          urlToImage: "https://placehold.co/600x400",
-          publishedAt: new Date().toISOString(),
-          source: { name: "Sample Source" },
-        },
-      ];
-      setSearchResults(mockArticles);
+  const handleSearch = async (query) => {
+    setIsSearchLoading(true);
+    try {
+      const response = await searchNews(query);
+      setSearchResults(response);
       setShowSearchForm(false);
-      setIsLoading(false);
-    }, 2000);
+    } catch (error) {
+      console.error("Error loading news:", error);
+      setSearchResults([]);
+    } finally {
+      setIsSearchLoading(false);
+    }
   };
 
   const [savedArticles, setSavedArticles] = useState([]);
@@ -102,12 +102,13 @@ function App() {
       ]);
     }
   };
+
   //Authentication
 
   const handleLogin = async ({ email, password }) => {
-    setIsLoading(true);
+    setIsAuthLoading(true);
     try {
-      const response = await login(email, password);
+      const response = await login({ email, password });
       if (response.token) {
         setToken(response.token);
         setLoggedIn(true);
@@ -116,24 +117,26 @@ function App() {
     } catch (error) {
       console.error("Login failed", error);
     } finally {
-      setIsLoading(false);
+      setIsAuthLoading(false);
     }
   };
 
   const handleRegister = async ({ email, password, userName }) => {
-    setIsLoading(true);
+    setIsAuthLoading(true);
     try {
-      const response = await register(email, password, userName);
-      if (response.message) {
+      const response = await register({ email, password, userName });
+      if (response) {
+        setMessage("Registration successfully completed!");
         setActiveModal("registerSuccess");
+        setTimeout(() => {
+          setActiveModal("login");
+        }, 2000);
       }
-      setTimeout(() => {
-        setActiveModal("login");
-      }, 2000);
     } catch (error) {
       console.error("Registration failed", error);
+      setMessage("Registration failed");
     } finally {
-      setIsLoading(false);
+      setIsAuthLoading(false);
     }
   };
 
@@ -143,12 +146,20 @@ function App() {
   };
 
   //Preloader
-  const [isLoading, setIsLoading] = useState(false);
+  const [isAuthLoading, setIsAuthLoading] = useState(false);
+  const [isSearchLoading, setIsSearchLoading] = useState(false);
 
   return (
     <BrowserRouter>
       <div className="app">
-        {isLoading && <Preloader />}
+        {isAuthLoading && (
+          <div className="modal">
+            <div className="modal__content">
+              <p>Loading ...</p>
+            </div>
+            <Preloader />
+          </div>
+        )}
         <div className="app__content">
           <Header
             isLoggedIn={isLoggedIn}
@@ -190,6 +201,14 @@ function App() {
             </Routes>
           </Main>
           <Footer></Footer>
+
+          {activeModal === "registerSuccess" && (
+            <div className="modal">
+              <div className="modal__content">
+                <p>Registration successfully completed !</p>
+              </div>
+            </div>
+          )}
 
           <LoginModal
             isOpen={activeModal === "login"}

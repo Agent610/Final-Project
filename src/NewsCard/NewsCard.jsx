@@ -4,7 +4,7 @@ import "./NewsCard.css";
 
 function NewsCard({
   title,
-  summary,
+  description,
   date,
   source,
   link,
@@ -21,7 +21,7 @@ function NewsCard({
       <div className="news-card__content">
         <p className="news-card__date">{date}</p>
         <h3 className="news-card__title">{title}</h3>
-        <p className="news-card__summary">{summary}</p>
+        <p className="news-card__description">{description}</p>
         <div className="news-card__footer">
           <span className="news-card__source">{source}</span>
           <a
@@ -37,7 +37,9 @@ function NewsCard({
               className={`news-card__save-button ${
                 isSaved ? "news-card__save-button_saved" : ""
               }`}
-              onClick={() => onSaveArticle(title, link, summary, source, image)}
+              onClick={() =>
+                onSaveArticle(title, link, description, source, image)
+              }
             >
               {isSaved ? "Remove from saved" : "Save Article"}
             </button>
@@ -52,7 +54,7 @@ function NewsCard({
 
 NewsCard.propTypes = {
   title: PropTypes.string.isRequired,
-  summary: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
   source: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired,

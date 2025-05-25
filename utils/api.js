@@ -2,6 +2,9 @@ export const baseUrl = "http://localhost:3000";
 
 const token = localStorage.getItem("jwt");
 
+const API_KEY = "fb6cff6571004bdb8d9f0274dc7989a1";
+const News_URL = "https://newsapi.org/v2/everything";
+
 //Getting the article(s)
 export function getItems() {
   return new Promise((resolve) => {
@@ -37,10 +40,32 @@ export function deleteArticle(articleId) {
   });
 }
 
+// Search query function
+export function searchNews(query) {
+  const url = `${News_URL}?q=${encodeURIComponent(query)}&apiKey=${API_KEY}`;
+
+  return fetch(url)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Please enter a keyword : ${response.statusText}`);
+      }
+      return response.json();
+    })
+    .then((data) => data.articles)
+    .catch((error) => {
+      console.error(
+        "Sorry, something went wrong during the request. Please try again later.",
+        error
+      );
+      throw error;
+    });
+}
+
 const api = {
   getItems,
   saveArticle,
   deleteArticle,
+  searchNews,
 };
 
 export default api;

@@ -4,25 +4,73 @@ import { handleServerResponse } from "./api";
 const TOKEN_KEY = "jwt";
 
 export const login = ({ email, password }) => {
-  return fetch(`${baseUrl}/login`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ email, password }),
-  }).then(handleServerResponse);
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      const mockUser = {
+        email: "Example1@Email.com",
+        password: "password",
+        name: "No-Name",
+        token: "mock-jwt-token-123456",
+      };
+
+      if (email === mockUser.email && password === mockUser.password) {
+        resolve({
+          success: true,
+          message: "Login successful",
+          user: {
+            name: mockUser.name,
+            email: mockUser.email,
+          },
+          token: mockUser.token,
+        });
+      } else {
+        reject({
+          success: false,
+          message: "Invalid email or password",
+        });
+      }
+    }, 1000);
+  });
 };
 
+const mockUser = [];
+
 export const register = ({ email, password, userName }) => {
-  // return fetch(`${baseUrl}/register`, {
-  //   method: "POST",
-  //   headers: {
-  //     "Content-Type": "application/json",
-  //   },
-  //   body: JSON.stringify({ email, password, userName }),
-  // }).then(handleServerResponse);
   return new Promise((resolve, reject) => {
-    resolve({ email, password, userName });
+    setTimeout(() => {
+      if (!email || !password || !userName) {
+        return reject({
+          success: false,
+          message: "All fields are required.",
+        });
+      }
+
+      const existingUser = mockUser.find((user) => user.email === email);
+      if (existingUser) {
+        return reject({
+          success: false,
+          message: "User already exists with this email.",
+        });
+      }
+
+      const newUser = {
+        email,
+        password,
+        userName,
+        token: `mock-token-${Date.now()}`,
+      };
+      mockUser.push(newUser);
+
+      resolve({
+        success: true,
+        message: "Registration successful.",
+        user: {
+          email: newUser.email,
+          userName: newUser.userName,
+        },
+        token: newUser.token,
+      });
+    }, 1000);
   });
 };
 
