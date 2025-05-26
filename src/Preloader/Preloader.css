@@ -14,6 +14,14 @@
   animation: spin 0.75s infinite linear;
 }
 
+.preloader-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 @keyframes spin {
   100% {
     transform: rotate(360deg);

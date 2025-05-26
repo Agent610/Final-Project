@@ -16,13 +16,16 @@ import SearchForm from "../SearchForm/SearchForm";
 import { Link } from "react-router-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NewsCardList from "../NewsCardList/NewsCardList";
-import { getToken, login, register, removeToken } from "../../utils/auth";
 import {
-  getItems,
-  saveArticle,
-  deleteArticle,
-  searchNews,
-} from "../../utils/api";
+  login,
+  register,
+  checkToken,
+  setToken,
+  getToken,
+  removeToken,
+} from "../../utils/auth";
+import { getItems, saveArticle, deleteArticle } from "../../utils/api";
+import { searchNews } from "../../utils/news";
 
 function App() {
   //If logged in
@@ -152,12 +155,12 @@ function App() {
   return (
     <BrowserRouter>
       <div className="app">
-        {isAuthLoading && (
+        {isSearchLoading && (
           <div className="modal">
-            <div className="modal__content">
+            <div className="modal__content modal_opened">
+              <Preloader />
               <p>Loading ...</p>
             </div>
-            <Preloader />
           </div>
         )}
         <div className="app__content">
@@ -203,7 +206,7 @@ function App() {
           <Footer></Footer>
 
           {activeModal === "registerSuccess" && (
-            <div className="modal">
+            <div className="modal modal_opened">
               <div className="modal__content">
                 <p>Registration successfully completed !</p>
               </div>

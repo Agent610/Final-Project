@@ -71,6 +71,9 @@ const LoginModal = ({ isOpen, onSubmit, onClose, handleSignupClick }) => {
             required
           />
         </label>
+        <button type="submit" className="modal__submit">
+          Sign in
+        </button>
       </ModalWithForm>
     </div>
   );
