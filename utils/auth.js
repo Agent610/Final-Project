@@ -4,31 +4,17 @@ import { handleServerResponse } from "./api";
 const TOKEN_KEY = "jwt";
 
 export const login = ({ email, password }) => {
-  return new Promise((resolve, reject) => {
+  return new Promise((resolve) => {
     setTimeout(() => {
-      const mockUser = {
-        email: "Example1@Email.com",
-        password: "password",
-        name: "No-Name",
-        token: "mock-jwt-token-123456",
-      };
-
-      if (email === mockUser.email && password === mockUser.password) {
-        resolve({
-          success: true,
-          message: "Login successful",
-          user: {
-            name: mockUser.name,
-            email: mockUser.email,
-          },
-          token: mockUser.token,
-        });
-      } else {
-        reject({
-          success: false,
-          message: "Invalid email or password",
-        });
-      }
+      resolve({
+        success: true,
+        message: "Login successful",
+        user: {
+          name: "User",
+          email,
+        },
+        token: "mock-jwt-token-" + Math.random().toString(36).substring(2),
+      });
     }, 1000);
   });
 };

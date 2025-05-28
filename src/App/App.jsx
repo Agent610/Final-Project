@@ -12,7 +12,6 @@ import NewsCard from "../NewsCard/NewsCard";
 import Preloader from "../Preloader/Preloader";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import SearchForm from "../SearchForm/SearchForm";
-//import CurrentUserContext from "../../contexts/CurrentUserContext";
 import { Link } from "react-router-dom";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NewsCardList from "../NewsCardList/NewsCardList";
@@ -26,8 +25,12 @@ import {
 } from "../../utils/auth";
 import { getItems, saveArticle, deleteArticle } from "../../utils/api";
 import { searchNews } from "../../utils/news";
+import SavedNews from "../SavedNews/SavedNews";
 
 function App() {
+  // User
+  const [currentUser, setCurrentUser] = useState(null);
+
   //If logged in
   const [isLoggedIn, setLoggedIn] = useState(false);
   //SearchForm.jsx
@@ -115,6 +118,8 @@ function App() {
       if (response.token) {
         setToken(response.token);
         setLoggedIn(true);
+        setCurrentUser(response.user);
+        localStorage.setItem("currentUser", JSON.stringify(response.user));
         handleCloseModal();
       }
     } catch (error) {
@@ -147,6 +152,16 @@ function App() {
     removeToken();
     setLoggedIn(false);
   };
+
+  React.useEffect(() => {
+    const token = getToken();
+    const savedUser = localStorage.getItem("currentUser");
+
+    if (token && savedUser) {
+      setLoggedIn(true);
+      setCurrentUser(JSON.parse(savedUser));
+    }
+  }, []);
 
   //Preloader
   const [isAuthLoading, setIsAuthLoading] = useState(false);
@@ -201,6 +216,17 @@ function App() {
                 }
               />
               <Route path="/about" element={<About />} />
+              <Route
+                path="/saved-news"
+                element={
+                  <SavedNews
+                    savedArticles={savedArticles}
+                    isLoggedIn={isLoggedIn}
+                    onSaveArticle={handleSaveArticle}
+                    currentUser={currentUser}
+                  />
+                }
+              />
             </Routes>
           </Main>
           <Footer></Footer>

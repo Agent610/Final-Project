@@ -65,7 +65,7 @@ function Navigation({
                       className="nav-list__button"
                       onClick={handleSignoutClick}
                     >
-                      {currentUser.name}
+                      {currentUser && currentUser.name}
                     </button>
                   </li>
                 </>
@@ -93,7 +93,7 @@ function Navigation({
             </li>
             <li className="nav-list__item">
               <button className="nav-list__button" onClick={handleSignoutClick}>
-                {currentUser.name}
+                {currentUser && currentUser.name}
               </button>
             </li>
           </div>
