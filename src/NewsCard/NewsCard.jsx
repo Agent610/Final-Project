@@ -12,12 +12,19 @@ function NewsCard({
   isSaved,
   isLoggedIn,
   onSaveArticle,
+  onDeleteArticle,
 }) {
   const [isHovered, setIsHovered] = useState(false);
-
+  const isHome = true; // use react location functionality
   const handleClick = () => {
-    if (isLoggedIn) {
-      onSaveArticle(title, description, source, link, image);
+    // grab your current page location
+    if (isHome) {
+      if (isLoggedIn) {
+        onSaveArticle(title, description, source, link, image);
+      }
+    } else {
+      // if you are on saved news fire your handle delete instead of handle save
+      onDeleteArticle(); // pass some params
     }
   };
 
@@ -45,12 +52,12 @@ function NewsCard({
             className="news-card__save-wrapper"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
-            onClick={handleClick}
           >
             <button
               className={`news-card__save-button ${
                 isSaved ? "news-card__save-button_saved" : ""
               }`}
+              onClick={handleClick}
             >
               {isSaved ? "Remove from saved" : "Save article"}
             </button>

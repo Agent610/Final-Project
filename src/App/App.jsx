@@ -87,12 +87,11 @@ function App() {
     }
   };
 
-  const [isSignedIn, setIsSignedIn] = useState(false);
   const [savedArticles, setSavedArticles] = useState([]);
   const [isHovered, setIsHovered] = useState(false);
 
-  const handleSaveArticle = (title, link, summary, source, image) => {
-    if (!isSignedIn) {
+  const handleSaveArticle = (title, link, description, source, image) => {
+    if (!isLoggedIn) {
       return;
     }
 
@@ -108,7 +107,7 @@ function App() {
         {
           title,
           url: link,
-          summary: summary,
+          description: description,
           source: { name: source },
           urlToImage: image,
         },
