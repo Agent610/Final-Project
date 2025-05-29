@@ -43,6 +43,28 @@
   line-height: 22px;
 }
 
+.news-card__save-wrapper {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.news-card__tooltip {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: max-content;
+  max-width: 200px;
+  padding: 8px 12px;
+  background-color: #fff;
+  color: #000;
+  border-radius: 6px;
+  font-size: 13px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  z-index: 10;
+  white-space: nowrap;
+}
 .news-card__footer {
 }
 

@@ -87,8 +87,15 @@ function App() {
     }
   };
 
+  const [isSignedIn, setIsSignedIn] = useState(false);
   const [savedArticles, setSavedArticles] = useState([]);
+  const [isHovered, setIsHovered] = useState(false);
+
   const handleSaveArticle = (title, link, summary, source, image) => {
+    if (!isSignedIn) {
+      return;
+    }
+
     const alreadySaved = savedArticles.some((article) => article.url === link);
 
     if (alreadySaved) {

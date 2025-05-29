@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import "./NewsCard.css";
 
@@ -13,6 +13,14 @@ function NewsCard({
   isLoggedIn,
   onSaveArticle,
 }) {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const handleClick = () => {
+    if (isLoggedIn) {
+      onSaveArticle(title, description, source, link, image);
+    }
+  };
+
   return (
     <article className="news-card">
       <div className="news-card__image-container">
@@ -32,18 +40,25 @@ function NewsCard({
           >
             Show more
           </a>
-          {isLoggedIn && (
+
+          <div
+            className="news-card__save-wrapper"
+            onMouseEnter={() => setIsHovered(true)}
+            onMouseLeave={() => setIsHovered(false)}
+            onClick={handleClick}
+          >
             <button
               className={`news-card__save-button ${
                 isSaved ? "news-card__save-button_saved" : ""
               }`}
-              onClick={() =>
-                onSaveArticle(title, link, description, source, image)
-              }
             >
-              {isSaved ? "Remove from saved" : "Save Article"}
+              {isSaved ? "Remove from saved" : "Save article"}
             </button>
-          )}
+
+            {!isLoggedIn && isHovered && (
+              <div className="news-card__tooltip">Sign in to save article</div>
+            )}
+          </div>
         </div>
       </div>
     </article>
