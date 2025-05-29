@@ -1,7 +1,13 @@
 .news-card {
+  width: 400px;
+  height: 576px;
+  top: 766px;
+  left: 104px;
 }
 
 .news-card__image {
+  width: 400px;
+  height: 272px;
 }
 
 .news-card__image-container {
@@ -11,12 +17,30 @@
 }
 
 .news-card__date {
+  width: 161px;
+  height: 24px;
+  font-family: "Source Sans Pro";
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
 }
 
 .news-card__title {
+  width: 352px;
+  height: 60px;
+  font-family: "Roboto Salb";
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 30px;
 }
 
-.news-card__summary {
+.news-card__description {
+  width: 352px;
+  height: 110px;
+  font-family: "Roboto Salb";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
 }
 
 .news-card__footer {
