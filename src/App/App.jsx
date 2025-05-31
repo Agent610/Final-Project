@@ -238,11 +238,6 @@ function App() {
                         savedArticles={savedArticles}
                         onDeleteArticle={handleDeleteArticle}
                       />
-                      {/* <ul>
-                        {searchResults.map((result, index) => (
-                          <li key={index}>{result}</li>
-                        ))}
-                      </ul> */}
                     </div>
                   </div>
                 }

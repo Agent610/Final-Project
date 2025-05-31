@@ -19,8 +19,6 @@ function NewsCard({
   const location = useLocation();
   const isHome = location.pathname === "/";
 
-  //const isHome = true;
-
   const handleClick = () => {
     if (isHome) {
       if (isLoggedIn) {

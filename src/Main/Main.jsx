@@ -21,7 +21,6 @@ function Main({ isLoggedIn, children }) {
         setArticles(
           data.articles.map((article) => ({
             title: article.title,
-            //summary: article.summary,
             description: article.description,
             date: article.publishedAt,
             source: article.source.name,
@@ -37,47 +36,6 @@ function Main({ isLoggedIn, children }) {
     }
     setLoading(false);
   };
-
-  // const handleSearch = (e) => {
-  //   e.preventDefault();
-  //   if (searchTerm.trim() !== "") {
-  //     fetchArticles(searchTerm);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   const saved = localStorage.getItem("savedArticles");
-  //   if (saved) {
-  //     setArticles(JSON.parse(saved));
-  //   }
-  // }, []);
-
-  useEffect(() => {
-    if (!isLoggedIn) return;
-
-    const saved = localStorage.getItem("savedArticles");
-    if (saved) {
-      const parsed = JSON.parse(saved);
-      const mapped = parsed.map((article) => ({
-        title: article.title || "No title",
-        description:
-          article.description ||
-          article.summary ||
-          "No description/summary available for this article",
-        date: article.date || new Date().toISOString(),
-        source:
-          typeof article.source === "object"
-            ? article.source.name
-            : article.source || "Unknown",
-        link: article.link || article.url || "#",
-        image:
-          article.image ||
-          article.urlToImage ||
-          "https://via.placeholder.com/600*400?text=No+Image",
-      }));
-      setArticles(mapped);
-    }
-  }, [isLoggedIn]);
 
   const handleSaveArticle = (title, link, description, source, image) => {
     if (!isLoggedIn) {
@@ -114,16 +72,6 @@ function Main({ isLoggedIn, children }) {
 
   return (
     <div className="main">
-      {/* <form onSubmit={handleSearch} className="main__search-form">
-        <input
-          type="text"
-          placeholder="Search news..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-        <button type="submit">Search</button>
-      </form> */}
-
       <div className="main__children">{children}</div>
 
       <section className="main__search-results">
@@ -131,10 +79,8 @@ function Main({ isLoggedIn, children }) {
         {error && <p>Error</p>}
         {articles.map((article, index) => (
           <NewsCard
-            //key={article._id || index}
             key={index}
             title={article.title}
-            //summary={article.summary}
             description={article.description}
             date={new Date(article.date).toLocaleDateString()}
             source={article.source}
@@ -147,10 +93,6 @@ function Main({ isLoggedIn, children }) {
           />
         ))}
       </section>
-
-      {/* <section className="main__about">
-        <About />
-      </section> */}
     </div>
   );
 }
