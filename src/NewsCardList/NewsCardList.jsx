@@ -57,18 +57,34 @@ function NewsCardList({
 NewsCardList.propTypes = {
   articles: PropTypes.arrayOf(
     PropTypes.shape({
-      title: PropTypes.string,
-      description: PropTypes.string,
-      publishedAt: PropTypes.string,
+      title: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+      publishedAt: PropTypes.string.isRequired,
       source: PropTypes.shape({ name: PropTypes.string }),
-      url: PropTypes.string,
-      urlToImage: PropTypes.string,
+      url: PropTypes.string.isRequired,
+      urlToImage: PropTypes.string.isRequired,
     })
-  ).isRequired,
+  ),
   isLoggedIn: PropTypes.bool.isRequired,
   onSaveArticle: PropTypes.func.isRequired,
   savedArticles: PropTypes.array.isRequired,
   onDeleteArticle: PropTypes.func.isRequired,
 };
-
 export default NewsCardList;
+
+// NewsCardList.propTypes = {
+//   articles: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       title: PropTypes.string,
+//       description: PropTypes.string,
+//       publishedAt: PropTypes.string,
+//       source: PropTypes.shape({ name: PropTypes.string }),
+//       url: PropTypes.string,
+//       urlToImage: PropTypes.string,
+//     })
+//   ).isRequired,
+//   isLoggedIn: PropTypes.bool.isRequired,
+//   onSaveArticle: PropTypes.func.isRequired,
+//   savedArticles: PropTypes.array.isRequired,
+//   onDeleteArticle: PropTypes.func.isRequired,
+// };

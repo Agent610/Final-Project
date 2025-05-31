@@ -1,5 +1,6 @@
 import React from "react";
 import NewsCardList from "../NewsCardList/NewsCardList";
+import NewsCard from "../NewsCard/NewsCard";
 
 const SavedNews = ({
   savedArticles,
@@ -13,7 +14,7 @@ const SavedNews = ({
   return (
     <div>
       <h2>
-        {userName} has {savedArticles.length} saved{" "}
+        {userName} , you have {savedArticles.length} saved articles{" "}
         {savedArticles.length === 1 ? "article" : "articles"}
       </h2>
 

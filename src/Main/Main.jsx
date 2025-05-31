@@ -21,11 +21,12 @@ function Main({ isLoggedIn, children }) {
         setArticles(
           data.articles.map((article) => ({
             title: article.title,
-            summary: article.summary,
-            date: article.date,
-            source: article.source,
-            link: article.link,
-            image: article.image,
+            //summary: article.summary,
+            description: article.description,
+            date: article.publishedAt,
+            source: article.source.name,
+            link: article.url,
+            image: article.urlToImage,
           }))
         );
       } else {
@@ -44,10 +45,35 @@ function Main({ isLoggedIn, children }) {
   //   }
   // };
 
+  // useEffect(() => {
+  //   const saved = localStorage.getItem("savedArticles");
+  //   if (saved) {
+  //     setArticles(JSON.parse(saved));
+  //   }
+  // }, []);
+
   useEffect(() => {
     const saved = localStorage.getItem("savedArticles");
     if (saved) {
-      setArticles(JSON.parse(saved));
+      const parsed = JSON.parse(saved);
+      const mapped = parsed.map((article) => ({
+        title: article.title,
+        description:
+          article.description ||
+          article.summary ||
+          "No description/summary available for this article",
+        date: article.date || new Date().toISOString(),
+        source:
+          typeof article.source === "object"
+            ? article.source.name
+            : article.source || "Unknown",
+        link: article.link || article.url || "#",
+        image:
+          article.image ||
+          article.urlToImage ||
+          "https://via.placeholder.com/600*400?text=No+Image",
+      }));
+      setArticles(mapped);
     }
   }, []);
 
@@ -74,6 +100,16 @@ function Main({ isLoggedIn, children }) {
     alert(`Article "${title}" saved!`);
   };
 
+  const handleDeleteArticle = (link) => {
+    if (!isLoggedIn) return;
+
+    const existing = JSON.parse(localStorage.getItem("savedArticles")) || [];
+    const updatedArticles = existing.filter((article) => article.link !== link);
+    localStorage.setItem("savedArticles", JSON.stringify(updatedArticles));
+    setArticles(updatedArticles);
+    alert("Article was removed");
+  };
+
   return (
     <div className="main">
       {/* <form onSubmit={handleSearch} className="main__search-form">
@@ -93,16 +129,19 @@ function Main({ isLoggedIn, children }) {
         {error && <p>Error</p>}
         {articles.map((article, index) => (
           <NewsCard
-            key={article._id || index}
+            //key={article._id || index}
+            key={index}
             title={article.title}
-            summary={article.summary}
-            date={article.date}
+            //summary={article.summary}
+            description={article.description}
+            date={new Date(article.date).toLocaleDateString()}
             source={article.source}
             link={article.link}
             image={article.image}
             isSaved={false}
             isLoggedIn={isLoggedIn}
             onSaveArticle={handleSaveArticle}
+            onDeleteArticle={handleDeleteArticle}
           />
         ))}
       </section>

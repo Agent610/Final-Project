@@ -26,7 +26,7 @@ function NewsCard({
       if (isLoggedIn) {
         onSaveArticle(title, description, source, link, image);
       }
-    } else {
+    } else if (onDeleteArticle) {
       onDeleteArticle(link);
     }
   };
@@ -87,6 +87,6 @@ NewsCard.propTypes = {
   isSaved: PropTypes.bool.isRequired,
   isLoggedIn: PropTypes.bool.isRequired,
   onSaveArticle: PropTypes.func.isRequired,
-  onDeleteArticle: PropTypes.func.isRequired,
+  onDeleteArticle: PropTypes.func,
 };
 export default NewsCard;
