@@ -53,11 +53,13 @@ function Main({ isLoggedIn, children }) {
   // }, []);
 
   useEffect(() => {
+    if (!isLoggedIn) return;
+
     const saved = localStorage.getItem("savedArticles");
     if (saved) {
       const parsed = JSON.parse(saved);
       const mapped = parsed.map((article) => ({
-        title: article.title,
+        title: article.title || "No title",
         description:
           article.description ||
           article.summary ||
@@ -75,9 +77,9 @@ function Main({ isLoggedIn, children }) {
       }));
       setArticles(mapped);
     }
-  }, []);
+  }, [isLoggedIn]);
 
-  const handleSaveArticle = (title, link, summary, source, image) => {
+  const handleSaveArticle = (title, link, description, source, image) => {
     if (!isLoggedIn) {
       alert("You must be logged in to save articles.");
       return;
@@ -86,7 +88,7 @@ function Main({ isLoggedIn, children }) {
     const savedArticle = {
       title,
       link,
-      summary,
+      description,
       source,
       image,
       date: new Date().toISOString(),

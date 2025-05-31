@@ -11,6 +11,12 @@ const SavedNews = ({
 }) => {
   const userName = currentUser?.name || "User";
 
+  const normalizedSavedArticles = savedArticles.map((article) => ({
+    ...article,
+    publishedAt:
+      article.date || article.publishedAt || new Date().toISOString(),
+  }));
+
   return (
     <div>
       <h2>
@@ -22,7 +28,7 @@ const SavedNews = ({
         <p>You haven't saved any articles </p>
       ) : (
         <NewsCardList
-          articles={savedArticles}
+          articles={normalizedSavedArticles}
           isLoggedIn={isLoggedIn}
           onSaveArticle={onSaveArticle}
           savedArticles={savedArticles}
