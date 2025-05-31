@@ -3,7 +3,13 @@ import PropTypes from "prop-types";
 import NewsCard from "../NewsCard/NewsCard";
 import "./NewsCardList.css";
 
-function NewsCardList({ articles, isLoggedIn, onSaveArticle, savedArticles }) {
+function NewsCardList({
+  articles,
+  isLoggedIn,
+  onSaveArticle,
+  savedArticles,
+  onDeleteArticle,
+}) {
   const [visibleCards, setVisibleCards] = useState(3);
 
   if (!articles || articles.length === 0) {
@@ -34,6 +40,7 @@ function NewsCardList({ articles, isLoggedIn, onSaveArticle, savedArticles }) {
               isSaved={checkIfArticleIsSaved(article)}
               isLoggedIn={isLoggedIn}
               onSaveArticle={onSaveArticle}
+              onDeleteArticle={onDeleteArticle}
             />
           );
         })}
@@ -61,6 +68,7 @@ NewsCardList.propTypes = {
   isLoggedIn: PropTypes.bool.isRequired,
   onSaveArticle: PropTypes.func.isRequired,
   savedArticles: PropTypes.array.isRequired,
+  onDeleteArticle: PropTypes.func.isRequired,
 };
 
 export default NewsCardList;

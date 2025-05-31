@@ -6,6 +6,7 @@ const SavedNews = ({
   isLoggedIn,
   onSaveArticle,
   currentUser,
+  onDeleteArticle,
 }) => {
   const userName = currentUser?.name || "User";
 
@@ -24,6 +25,7 @@ const SavedNews = ({
           isLoggedIn={isLoggedIn}
           onSaveArticle={onSaveArticle}
           savedArticles={savedArticles}
+          onDeleteArticle={onDeleteArticle}
         />
       )}
     </div>

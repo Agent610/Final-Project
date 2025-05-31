@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import "./NewsCard.css";
+import { useLocation } from "react-router-dom";
 
 function NewsCard({
   title,
@@ -15,16 +16,18 @@ function NewsCard({
   onDeleteArticle,
 }) {
   const [isHovered, setIsHovered] = useState(false);
-  const isHome = true; // use react location functionality
+  const location = useLocation();
+  const isHome = location.pathname === "/";
+
+  //const isHome = true;
+
   const handleClick = () => {
-    // grab your current page location
     if (isHome) {
       if (isLoggedIn) {
         onSaveArticle(title, description, source, link, image);
       }
     } else {
-      // if you are on saved news fire your handle delete instead of handle save
-      onDeleteArticle(); // pass some params
+      onDeleteArticle(link);
     }
   };
 
@@ -84,5 +87,6 @@ NewsCard.propTypes = {
   isSaved: PropTypes.bool.isRequired,
   isLoggedIn: PropTypes.bool.isRequired,
   onSaveArticle: PropTypes.func.isRequired,
+  onDeleteArticle: PropTypes.func.isRequired,
 };
 export default NewsCard;

@@ -87,6 +87,7 @@ function App() {
     }
   };
 
+  //Article save functionality
   const [savedArticles, setSavedArticles] = useState([]);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -113,6 +114,14 @@ function App() {
         },
       ]);
     }
+  };
+
+  const handleDeleteArticle = (link) => {
+    if (!isLoggedIn) {
+      return;
+    }
+
+    setSavedArticles((prev) => prev.filter((article) => article.url !== link));
   };
 
   //Authentication
@@ -169,6 +178,22 @@ function App() {
     }
   }, []);
 
+  const [isSavedArticlesLoaded, setIsSavedArticlesLoaded] = useState(false);
+
+  React.useEffect(() => {
+    if (isSavedArticlesLoaded) {
+      localStorage.setItem("savedArticles", JSON.stringify(savedArticles));
+    }
+  }, [savedArticles, isSavedArticlesLoaded]);
+
+  React.useEffect(() => {
+    const saved = localStorage.getItem("savedArticles");
+    if (saved) {
+      setSavedArticles(JSON.parse(saved));
+    }
+    setIsSavedArticlesLoaded(true);
+  }, []);
+
   //Preloader
   const [isAuthLoading, setIsAuthLoading] = useState(false);
   const [isSearchLoading, setIsSearchLoading] = useState(false);
@@ -211,6 +236,7 @@ function App() {
                         isLoggedIn={isLoggedIn}
                         onSaveArticle={handleSaveArticle}
                         savedArticles={savedArticles}
+                        onDeleteArticle={handleDeleteArticle}
                       />
                       {/* <ul>
                         {searchResults.map((result, index) => (
@@ -230,6 +256,7 @@ function App() {
                     isLoggedIn={isLoggedIn}
                     onSaveArticle={handleSaveArticle}
                     currentUser={currentUser}
+                    onDeleteArticle={handleDeleteArticle}
                   />
                 }
               />
