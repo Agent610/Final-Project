@@ -73,18 +73,21 @@ function App() {
   }, [activeModal]);
 
   //Article work
-  const handleSearch = async (query) => {
+  const handleSearch = (query) => {
     setIsSearchLoading(true);
-    try {
-      const response = await searchNews(query);
-      setSearchResults(response);
-      setShowSearchForm(false);
-    } catch (error) {
-      console.error("Error loading news:", error);
-      setSearchResults([]);
-    } finally {
-      setIsSearchLoading(false);
-    }
+
+    searchNews(query)
+      .then((response) => {
+        setSearchResults(response);
+        setShowSearchForm(false);
+      })
+      .catch((error) => {
+        console.error("Error loading news:", error);
+        setSearchResults([]);
+      })
+      .finally(() => {
+        setIsSearchLoading(false);
+      });
   };
 
   //Article save functionality
@@ -126,41 +129,47 @@ function App() {
 
   //Authentication
 
-  const handleLogin = async ({ email, password }) => {
+  const handleLogin = ({ email, password }) => {
     setIsAuthLoading(true);
-    try {
-      const response = await login({ email, password });
-      if (response.token) {
-        setToken(response.token);
-        setLoggedIn(true);
-        setCurrentUser(response.user);
-        localStorage.setItem("currentUser", JSON.stringify(response.user));
-        handleCloseModal();
-      }
-    } catch (error) {
-      console.error("Login failed", error);
-    } finally {
-      setIsAuthLoading(false);
-    }
+
+    login({ email, password })
+      .then((response) => {
+        if (response.token) {
+          setToken(response.token);
+          setLoggedIn(true);
+          setCurrentUser(response.user);
+          localStorage.setItem("currentUser", JSON.stringify(response.user));
+          handleCloseModal();
+        }
+      })
+      .catch((error) => {
+        console.error("Login failed", error);
+      })
+      .finally(() => {
+        setIsAuthLoading(false);
+      });
   };
 
-  const handleRegister = async ({ email, password, userName }) => {
+  const handleRegister = ({ email, password, userName }) => {
     setIsAuthLoading(true);
-    try {
-      const response = await register({ email, password, userName });
-      if (response) {
-        setMessage("Registration successfully completed!");
-        setActiveModal("registerSuccess");
-        setTimeout(() => {
-          setActiveModal("login");
-        }, 2000);
-      }
-    } catch (error) {
-      console.error("Registration failed", error);
-      setMessage("Registration failed");
-    } finally {
-      setIsAuthLoading(false);
-    }
+
+    register({ email, password, userName })
+      .then((response) => {
+        if (response) {
+          setMessage("Registration successfully completed !");
+          setActiveModal("registerSuccess");
+          setTimeout(() => {
+            setActiveModal("login");
+          }, 2000);
+        }
+      })
+      .catch((error) => {
+        console.error("Registration failed", error);
+        setMessage("Registration failed");
+      })
+      .finally(() => {
+        setIsAuthLoading(false);
+      });
   };
 
   const handleSignoutClick = () => {

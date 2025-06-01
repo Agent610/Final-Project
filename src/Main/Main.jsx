@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Main.css";
 import NewsCard from "../NewsCard/NewsCard.jsx";
-//import About from "../About/About.jsx";
+const API_KEY = "fb6cff6571004bdb8d9f0274dc7989a1";
 
 function Main({ isLoggedIn, children }) {
   const [articles, setArticles] = useState([]);
@@ -9,32 +9,34 @@ function Main({ isLoggedIn, children }) {
   const [loading, setLoading] = useState([]);
   const [error, setError] = useState([]);
 
-  const fetchArticles = async (query) => {
+  const fetchArticles = (query) => {
     setLoading(true);
     setError("");
-    try {
-      const response = await fetch(
-        `https://newsapi.org/v2/everything?q=${query}&apiKey=Key;`
-      );
-      const data = await response.json();
-      if (data.articles) {
-        setArticles(
-          data.articles.map((article) => ({
-            title: article.title,
-            description: article.description,
-            date: article.publishedAt,
-            source: article.source.name,
-            link: article.url,
-            image: article.urlToImage,
-          }))
-        );
-      } else {
-        setError("No articles found");
-      }
-    } catch (err) {
-      setError("Error fetching articles");
-    }
-    setLoading(false);
+
+    fetch(`https://newsapi.org/v2/everything?q=${query}&apiKey=${API_KEY}`)
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.articles) {
+          setArticles(
+            data.articles.map((article) => ({
+              title: article.title,
+              description: article.description,
+              date: article.publishedAt,
+              source: article.source.name,
+              link: article.url,
+              image: article.urlToImage,
+            }))
+          );
+        } else {
+          setError("No articles found");
+        }
+      })
+      .catch((err) => {
+        setError("Error fetching articles");
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   const handleSaveArticle = (title, link, description, source, image) => {
