@@ -77,8 +77,8 @@ function Main({ isLoggedIn, children }) {
       <div className="main__children">{children}</div>
 
       <section className="main__search-results">
-        {loading && <p>Loading...</p>}
-        {error && <p>Error</p>}
+        {/* {loading && <p>Loading...</p>}
+        {error && <p>Error</p>} */}
         {articles.map((article, index) => (
           <NewsCard
             key={index}
