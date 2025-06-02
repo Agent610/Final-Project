@@ -30,7 +30,9 @@ function SearchForm({ onSearch }) {
         onChange={handleInputChange}
       />
       {error && <p className="search-form__error">{error}</p>}
-      <button type="submit">Search</button>
+      <button className="search__button" type="submit">
+        Search
+      </button>
     </form>
   );
 }

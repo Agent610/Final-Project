@@ -74,6 +74,8 @@ function Main({ isLoggedIn, children }) {
 
   return (
     <div className="main">
+      <h1>What's going on in the world ?</h1>
+      <p>Find the latest news on any topic and save them into your account</p>
       <div className="main__children">{children}</div>
 
       <section className="main__search-results">
