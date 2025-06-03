@@ -6,11 +6,12 @@
   padding: 0;
   cursor: pointer;
   font-size: 16px;
-  margin-left: 150px;
+  margin-left: 5px;
 }
 
 .modal__label {
-  color: blue;
+  color: #2f71e5;
+  text-align: left;
 }
 
 .modal__input {
