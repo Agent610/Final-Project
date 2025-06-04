@@ -22,16 +22,16 @@ const RegisterModal = ({ isOpen, onSubmit, onClose, handleSigninClick }) => {
   };
 
   return (
-    <ModalWithForm
-      title="Sign Up"
-      buttonText="Sign Up"
-      isOpen={isOpen}
-      onClose={onClose}
-      onSubmit={handleFormSubmit}
-    >
-      <div>
+    <div>
+      <ModalWithForm
+        title="Sign Up"
+        buttonText="Sign Up"
+        isOpen={isOpen}
+        onClose={onClose}
+        onSubmit={handleFormSubmit}
+      >
         <label htmlFor="register-email" className="modal__label">
-          Email{""}
+          Email
           <input
             type="email"
             className="modal__input"
@@ -43,7 +43,7 @@ const RegisterModal = ({ isOpen, onSubmit, onClose, handleSigninClick }) => {
           />
         </label>
         <label htmlFor="register-password" className="modal__label">
-          Password{""}
+          Password
           <input
             type="password"
             className="modal__input"
@@ -55,7 +55,7 @@ const RegisterModal = ({ isOpen, onSubmit, onClose, handleSigninClick }) => {
           />
         </label>
         <label htmlFor="register-username" className="modal__label">
-          Username{""}
+          Username
           <input
             type="text"
             className="modal__input"
@@ -71,13 +71,13 @@ const RegisterModal = ({ isOpen, onSubmit, onClose, handleSigninClick }) => {
           className="register__link"
           onClick={handleSigninClick}
         >
-          or Sign in{""}
+          or Sign in
         </button>
-      </div>
-      <button type="submit" className="modal__submit">
-        Signup
-      </button>
-    </ModalWithForm>
+        <button type="submit" className="modal__submit">
+          Signup
+        </button>
+      </ModalWithForm>
+    </div>
   );
 };
 export default RegisterModal;
