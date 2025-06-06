@@ -6,12 +6,19 @@
   height: 80px;
   margin: 0 auto;
   padding: 0 104px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .header__logo {
   position: relative;
   z-index: 1001;
   color: white;
+  width: 200px;
+  height: 24px;
+  font-family: "Roboto Slab";
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
 }
 /* .header__signIn {
   border: none;

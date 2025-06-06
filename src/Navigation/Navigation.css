@@ -41,28 +41,38 @@
 }
 
 .nav-list__link-home {
-  /* position: relative;
-  left: 1070px;
-  top: -60px; */
   text-decoration: none;
-  color: #b6bcbf;
+  color: #ffff;
+  width: 49px;
+  height: 24px;
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.nav-list__link-home:hover {
+  border-bottom: 68px solid #ffffff;
+  border-width: 3px;
 }
 
 .nav-list__button {
   padding: 12px 20px;
   border-radius: 100px;
-  background: #2f71e5;
+  background: transparent;
   color: #ffffff;
-  border: none;
+  border: 1px solid white;
   font-family: "Roboto", sans-serif;
   font-size: 18px;
   cursor: pointer;
   transition: 0.3s ease;
-  /* margin-bottom: 123px; */
+  width: 176px;
+  height: 48px;
 }
 
 .nav-list__button:hover {
-  background: #347cff;
+  border-bottom: 68px solid #fff;
+  border-width: 3px;
 }
 
 .hamburger-menu {
