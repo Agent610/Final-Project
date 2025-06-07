@@ -35,6 +35,7 @@ function App() {
   const [isLoggedIn, setLoggedIn] = useState(false);
   //SearchForm.jsx
   const [searchResults, setSearchResults] = useState([]);
+  const [hasSearched, setHasSearched] = useState(false);
   const [showSearchForm, setShowSearchForm] = useState(true);
   const [message, setMessage] = useState("");
 
@@ -75,6 +76,7 @@ function App() {
   //Article work
   const handleSearch = (query) => {
     setIsSearchLoading(true);
+    setHasSearched(true);
 
     searchNews(query)
       .then((response) => {
@@ -238,16 +240,18 @@ function App() {
                         Search
                       </button>
                     )}
-                    <div>
-                      <h2>Search Results</h2>
-                      <NewsCardList
-                        articles={searchResults}
-                        isLoggedIn={isLoggedIn}
-                        onSaveArticle={handleSaveArticle}
-                        savedArticles={savedArticles}
-                        onDeleteArticle={handleDeleteArticle}
-                      />
-                    </div>
+                    {hasSearched && (
+                      <div>
+                        <h2>Search Results</h2>
+                        <NewsCardList
+                          articles={searchResults}
+                          isLoggedIn={isLoggedIn}
+                          onSaveArticle={handleSaveArticle}
+                          savedArticles={savedArticles}
+                          onDeleteArticle={handleDeleteArticle}
+                        />
+                      </div>
+                    )}
                   </div>
                 }
               />
@@ -266,6 +270,7 @@ function App() {
               />
             </Routes>
           </Main>
+          <About></About>
           <Footer></Footer>
 
           {activeModal === "registerSuccess" && (

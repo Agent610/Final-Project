@@ -40,6 +40,11 @@
   font-weight: 500;
 }
 
+.nav-list__link:hover {
+  border-bottom: 68px solid #ffff;
+  border-width: 3px;
+}
+
 .nav-list__link-home {
   text-decoration: none;
   color: #ffff;
