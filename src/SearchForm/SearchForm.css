@@ -1,0 +1,18 @@
+.search-form {
+}
+
+.search-input {
+  width: 608px;
+  height: 64px;
+  border-radius: 1px;
+}
+
+.search-form__error {
+}
+
+.search__button {
+  width: 168px;
+  height: 64px;
+  border-radius: 100px;
+  background-color: #2f71e5;
+}
