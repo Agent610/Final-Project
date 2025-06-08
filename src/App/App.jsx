@@ -29,7 +29,7 @@ import SavedNews from "../SavedNews/SavedNews";
 
 function App() {
   // User
-  const [currentUser, setCurrentUser] = useState(null);
+  const [currentUser, setCurrentUser] = useState({});
 
   //If logged in
   const [isLoggedIn, setLoggedIn] = useState(false);
@@ -223,7 +223,7 @@ function App() {
         <div className="app__content">
           <Header
             isLoggedIn={isLoggedIn}
-            //currentUser={currentUser}
+            currentUser={currentUser}
             handleSigninClick={() => setActiveModal("login")}
             handleSignoutClick={handleSignoutClick}
           />

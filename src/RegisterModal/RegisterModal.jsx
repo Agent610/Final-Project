@@ -1,23 +1,36 @@
 import React, { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./RegisterModal.css";
-import { register } from "../../utils/auth";
+//import { register } from "../../utils/auth";
 
 const RegisterModal = ({ isOpen, onSubmit, onClose, handleSigninClick }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [userName, setUserName] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleEmailOnChange = (e) => setEmail(e.target.value);
   const handlePasswordOnChange = (e) => setPassword(e.target.value);
   const handleUserNameOnChange = (e) => setUserName(e.target.value);
 
+  const isFormValid =
+    email.trim() !== "" && password.trim() !== "" && userName.trim() !== "";
+
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     try {
       await onSubmit({ email, password, userName });
+      setEmail("");
+      setPassword("");
+      setUserName("");
+      setError("");
     } catch (error) {
       console.error(error);
+      setError("Registration failed");
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -30,6 +43,7 @@ const RegisterModal = ({ isOpen, onSubmit, onClose, handleSigninClick }) => {
         onClose={onClose}
         onSubmit={handleFormSubmit}
       >
+        {error && <p className="modal__error">{error}</p>}
         <label htmlFor="register-email" className="modal__label">
           Email
           <input
@@ -73,8 +87,12 @@ const RegisterModal = ({ isOpen, onSubmit, onClose, handleSigninClick }) => {
         >
           or Sign in
         </button>
-        <button type="submit" className="modal__submit">
-          Signup
+        <button
+          type="submit"
+          className="modal__submit"
+          disabled={!isFormValid || isLoading}
+        >
+          {isLoading ? "Signing up..." : "Signup"}
         </button>
       </ModalWithForm>
     </div>

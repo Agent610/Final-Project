@@ -19,6 +19,8 @@ function Navigation({
     </button>
   );
 
+  console.log(currentUser);
+
   return (
     <nav className="navigation">
       <button className="hamburger-menu" onClick={toggleMenu}>

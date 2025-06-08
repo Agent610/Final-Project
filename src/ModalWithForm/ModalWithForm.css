@@ -66,6 +66,11 @@
   color: #ffff;
 }
 
+.modal__submit:disabled {
+  background-color: #cccccc;
+  color: #666;
+  opacity: 0.6;
+}
 @media screen and (max-width: 320px) {
   .modal {
     position: fixed;

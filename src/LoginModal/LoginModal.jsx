@@ -11,11 +11,16 @@ const LoginModal = ({ isOpen, onSubmit, onClose, handleSignupClick }) => {
   const handleEmailOnChange = (e) => setEmail(e.target.value);
   const handlePasswordOnChange = (e) => setPassword(e.target.value);
 
+  const isFormValid = email.trim() !== "" && password.trim() !== "";
+
   async function handleFormSubmit(e) {
     e.preventDefault();
     setIsLoading(true);
     try {
       await onSubmit({ email, password });
+      setEmail("");
+      setPassword("");
+      setError("");
     } catch (error) {
       setError(error.message || "An error occured during login");
       console.error(error);
@@ -71,8 +76,12 @@ const LoginModal = ({ isOpen, onSubmit, onClose, handleSignupClick }) => {
             required
           />
         </label>
-        <button type="submit" className="modal__submit">
-          Sign in
+        <button
+          type="submit"
+          className="modal__submit"
+          disabled={!isFormValid || isLoading}
+        >
+          {isLoading ? "Signing in ..." : "Sign in"}
         </button>
       </ModalWithForm>
     </div>
