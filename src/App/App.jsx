@@ -13,7 +13,7 @@ import Preloader from "../Preloader/Preloader";
 import RegisterModal from "../RegisterModal/RegisterModal";
 import SearchForm from "../SearchForm/SearchForm";
 import { Link } from "react-router-dom";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import NewsCardList from "../NewsCardList/NewsCardList";
 import {
   login,
@@ -209,6 +209,9 @@ function App() {
   const [isAuthLoading, setIsAuthLoading] = useState(false);
   const [isSearchLoading, setIsSearchLoading] = useState(false);
 
+  //Location in the App
+  // const location = useLocation();
+
   return (
     <BrowserRouter>
       <div className="app">
@@ -242,7 +245,7 @@ function App() {
                     )}
                     {hasSearched && (
                       <div>
-                        <h2>Search Results</h2>
+                        <h2 className="search__title">Search Results</h2>
                         <NewsCardList
                           articles={searchResults}
                           isLoggedIn={isLoggedIn}
@@ -270,6 +273,7 @@ function App() {
               />
             </Routes>
           </Main>
+          {/* {location.pathname !== "/saved-news" && <About />} */}
           <About></About>
           <Footer></Footer>
 

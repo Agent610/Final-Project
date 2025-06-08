@@ -1,3 +1,4 @@
+/*Desktop View */
 .about {
   max-width: 1440px;
   margin: 0 auto;
@@ -37,6 +38,7 @@
   width: 464px;
   height: 464px;
   object-fit: cover;
+  border-radius: 1000px;
 }
 
 .about__image-container {
@@ -49,7 +51,7 @@
   display: flex;
   flex-direction: column;
 }
-
+/* Tablet view*/
 @media screen and (max-width: 768px) {
   .about {
     margin-bottom: 64px;
@@ -82,6 +84,7 @@
   }
 }
 
+/* Mobile view*/
 @media screen and (max-width: 320px) {
   .about__content {
     flex-direction: column;

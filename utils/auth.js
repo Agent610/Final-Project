@@ -4,14 +4,27 @@ import { handleServerResponse } from "./api";
 const TOKEN_KEY = "jwt";
 
 export const login = ({ email, password }) => {
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     setTimeout(() => {
+      const storedUsers = JSON.parse(localStorage.getItem("mockUsers")) || [];
+
+      const existingUser = storedUsers.find(
+        (user) => user.email === email && user.password === password
+      );
+
+      if (!existingUser) {
+        return reject({
+          success: false,
+          message: "Error invalid email or password try again.",
+        });
+      }
+
       resolve({
         success: true,
         message: "Login successful",
         user: {
-          name: "User",
-          email,
+          name: existingUser.userName,
+          email: existingUser.email,
         },
         token: "mock-jwt-token-" + Math.random().toString(36).substring(2),
       });
@@ -19,7 +32,7 @@ export const login = ({ email, password }) => {
   });
 };
 
-const mockUser = [];
+//const mockUser = [];
 
 export const register = ({ email, password, userName }) => {
   return new Promise((resolve, reject) => {
@@ -31,7 +44,9 @@ export const register = ({ email, password, userName }) => {
         });
       }
 
-      const existingUser = mockUser.find((user) => user.email === email);
+      const storedUsers = JSON.parse(localStorage.getItem("mockUsers")) || [];
+
+      const existingUser = storedUsers.find((user) => user.email === email);
       if (existingUser) {
         return reject({
           success: false,
@@ -45,7 +60,8 @@ export const register = ({ email, password, userName }) => {
         userName,
         token: `mock-token-${Date.now()}`,
       };
-      mockUser.push(newUser);
+      storedUsers.push(newUser);
+      localStorage.setItem("mockUsers", JSON.stringify(storedUsers));
 
       resolve({
         success: true,
