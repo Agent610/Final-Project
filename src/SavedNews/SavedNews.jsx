@@ -20,7 +20,7 @@ const SavedNews = ({
   return (
     <div>
       <h2>
-        {userName} , you have {savedArticles.length} saved articles{" "}
+        {userName} , you have {savedArticles.length} saved{" "}
         {savedArticles.length === 1 ? "article" : "articles"}
       </h2>
 

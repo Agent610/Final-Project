@@ -28,6 +28,8 @@ import { searchNews } from "../../utils/news";
 import SavedNews from "../SavedNews/SavedNews";
 
 function App() {
+  const location = useLocation();
+
   // User
   const [currentUser, setCurrentUser] = useState({});
 
@@ -210,96 +212,93 @@ function App() {
   const [isSearchLoading, setIsSearchLoading] = useState(false);
 
   //Location in the App
-  // const location = useLocation();
 
   return (
-    <BrowserRouter>
-      <div className="app">
-        {isSearchLoading && (
-          <div className="modal">
-            <div className="modal__content modal_opened">
-              <Preloader />
-              <p>Loading ...</p>
+    <div className="app">
+      {isSearchLoading && (
+        <div className="modal">
+          <div className="modal__content modal_opened">
+            <Preloader />
+            <p>Loading ...</p>
+          </div>
+        </div>
+      )}
+      <div className="app__content">
+        <Header
+          isLoggedIn={isLoggedIn}
+          currentUser={currentUser}
+          handleSigninClick={() => setActiveModal("login")}
+          handleSignoutClick={handleSignoutClick}
+        />
+        <Main isLoggedIn={isLoggedIn}>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <div>
+                  {showSearchForm ? (
+                    <SearchForm onSearch={handleSearch} />
+                  ) : (
+                    <button onClick={() => setShowSearchForm(true)}>
+                      Search
+                    </button>
+                  )}
+                  {hasSearched && (
+                    <div>
+                      <h2 className="search__title">Search Results</h2>
+                      <NewsCardList
+                        articles={searchResults}
+                        isLoggedIn={isLoggedIn}
+                        onSaveArticle={handleSaveArticle}
+                        savedArticles={savedArticles}
+                        onDeleteArticle={handleDeleteArticle}
+                      />
+                    </div>
+                  )}
+                </div>
+              }
+            />
+            <Route path="/about" element={<About />} />
+            <Route
+              path="/saved-news"
+              element={
+                <SavedNews
+                  savedArticles={savedArticles}
+                  isLoggedIn={isLoggedIn}
+                  onSaveArticle={handleSaveArticle}
+                  currentUser={currentUser}
+                  onDeleteArticle={handleDeleteArticle}
+                />
+              }
+            />
+          </Routes>
+        </Main>
+        {location.pathname === "/" && <About />}
+
+        <Footer></Footer>
+
+        {activeModal === "registerSuccess" && (
+          <div className="modal modal_opened">
+            <div className="modal__content">
+              <p>Registration successfully completed !</p>
             </div>
           </div>
         )}
-        <div className="app__content">
-          <Header
-            isLoggedIn={isLoggedIn}
-            currentUser={currentUser}
-            handleSigninClick={() => setActiveModal("login")}
-            handleSignoutClick={handleSignoutClick}
-          />
-          <Main isLoggedIn={isLoggedIn}>
-            <Routes>
-              <Route
-                path="/"
-                element={
-                  <div>
-                    {showSearchForm ? (
-                      <SearchForm onSearch={handleSearch} />
-                    ) : (
-                      <button onClick={() => setShowSearchForm(true)}>
-                        Search
-                      </button>
-                    )}
-                    {hasSearched && (
-                      <div>
-                        <h2 className="search__title">Search Results</h2>
-                        <NewsCardList
-                          articles={searchResults}
-                          isLoggedIn={isLoggedIn}
-                          onSaveArticle={handleSaveArticle}
-                          savedArticles={savedArticles}
-                          onDeleteArticle={handleDeleteArticle}
-                        />
-                      </div>
-                    )}
-                  </div>
-                }
-              />
-              <Route path="/about" element={<About />} />
-              <Route
-                path="/saved-news"
-                element={
-                  <SavedNews
-                    savedArticles={savedArticles}
-                    isLoggedIn={isLoggedIn}
-                    onSaveArticle={handleSaveArticle}
-                    currentUser={currentUser}
-                    onDeleteArticle={handleDeleteArticle}
-                  />
-                }
-              />
-            </Routes>
-          </Main>
-          {/* {location.pathname !== "/saved-news" && <About />} */}
-          <About></About>
-          <Footer></Footer>
 
-          {activeModal === "registerSuccess" && (
-            <div className="modal modal_opened">
-              <div className="modal__content">
-                <p>Registration successfully completed !</p>
-              </div>
-            </div>
-          )}
-
-          <LoginModal
-            isOpen={activeModal === "login"}
-            onSubmit={handleLogin}
-            onClose={handleCloseModal}
-            handleSignupClick={() => setActiveModal("register")}
-          />
-          <RegisterModal
-            isOpen={activeModal === "register"}
-            onSubmit={handleRegister}
-            onClose={handleCloseModal}
-            handleSigninClick={() => setActiveModal("login")}
-          />
-        </div>
+        <LoginModal
+          isOpen={activeModal === "login"}
+          onSubmit={handleLogin}
+          onClose={handleCloseModal}
+          handleSignupClick={() => setActiveModal("register")}
+        />
+        <RegisterModal
+          isOpen={activeModal === "register"}
+          onSubmit={handleRegister}
+          onClose={handleCloseModal}
+          handleSigninClick={() => setActiveModal("login")}
+        />
       </div>
-    </BrowserRouter>
+    </div>
   );
 }
 

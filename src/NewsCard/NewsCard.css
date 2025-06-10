@@ -23,6 +23,7 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 24px;
+  color: #b6bcbf;
 }
 
 .news-card__title {
@@ -32,6 +33,7 @@
   font-weight: 400;
   font-size: 26px;
   line-height: 30px;
+  color: #1a1b22;
 }
 
 .news-card__description {
@@ -41,6 +43,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 22px;
+  color: #1a1b22;
 }
 
 .news-card__save-wrapper {
@@ -66,9 +69,11 @@
   white-space: nowrap;
 }
 .news-card__footer {
+  color: black;
 }
 
 .news-card__source {
+  color: #b6bcbf;
 }
 
 .news-card__link {
