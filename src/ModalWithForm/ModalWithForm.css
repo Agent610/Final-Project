@@ -23,6 +23,7 @@
   box-sizing: border-box;
   width: 100%;
   border-radius: 20px;
+  height: 458px;
 }
 
 .modal__title {
@@ -70,6 +71,7 @@
   background-color: #cccccc;
   color: #666;
   opacity: 0.6;
+  margin-bottom: 16px;
 }
 @media screen and (max-width: 320px) {
   .modal {

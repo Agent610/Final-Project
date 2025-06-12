@@ -25,10 +25,10 @@ function About() {
             I can bring to customers is well designed applications and websites
             that deliver value for customers. With an expertise and speciality
             in the backend development and a good amount of experience in
-            frontend. I Parth, from wanting to join Connecticut State Police
-            becoming a Connecticut State-Trooper to now a Software Engineer I'm
-            ready to do any project, assignment and provide meaningful solutions
-            for my company that I work with .
+            frontend. I Parth, from wanting to join the Connecticut State Police
+            and becoming a Connecticut State-Trooper to now a Software Engineer
+            I'm ready to do any project, assignment and provide meaningful
+            solutions for my company that I work with .
           </p>
         </div>
       </div>
