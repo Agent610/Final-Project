@@ -230,7 +230,8 @@ function App() {
           handleSigninClick={() => setActiveModal("login")}
           handleSignoutClick={handleSignoutClick}
         />
-        <Main isLoggedIn={isLoggedIn}>
+
+        <Main>
           <Routes>
             <Route
               path="/"
@@ -272,8 +273,8 @@ function App() {
               }
             />
           </Routes>
+          {location.pathname === "/" && <About />}
         </Main>
-        {location.pathname === "/" && <About />}
 
         <Footer></Footer>
 
