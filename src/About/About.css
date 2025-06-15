@@ -1,0 +1,134 @@
+/*Desktop View */
+.about {
+  /* max-width: 1440px; */
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+}
+
+.about__content {
+  display: flex;
+  gap: 60px;
+  align-items: start;
+}
+
+.about__title {
+  width: auto;
+  height: 46px;
+  margin-left: 0;
+  margin-bottom: 20px;
+  font-family: "Roboto Slab";
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 46px;
+}
+
+.about__text {
+  width: auto;
+  height: 120px;
+  top: 201px;
+  left: 624px;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.about__image {
+  width: 464px;
+  height: 464px;
+  object-fit: cover;
+  border-radius: 1000px;
+}
+
+.about__image-container {
+  flex: 0 0 auto;
+  width: 30%;
+}
+
+.about__text-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+/* Tablet view*/
+@media screen and (max-width: 768px) {
+  .about {
+    margin-bottom: 64px;
+  }
+
+  .about__image {
+    width: 232px;
+    height: 232px;
+    object-fit: cover;
+    gap: 32px;
+  }
+
+  .about__image-container {
+    width: 232px;
+    height: 232px;
+  }
+
+  .about__title {
+    font-size: 30px;
+    width: 424px;
+    height: 34px;
+    line-height: 40px;
+    padding: 0;
+  }
+
+  .about__text {
+    width: 424px;
+    height: auto;
+    margin-left: 0;
+  }
+}
+
+/* Mobile view*/
+@media screen and (max-width: 320px) {
+  .about__content {
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+    padding: 16px;
+  }
+
+  .about__image {
+    width: 272px;
+    height: 272px;
+  }
+
+  .about__image-container {
+    width: 272px;
+    height: 272px;
+    margin-bottom: 16px;
+  }
+
+  .about__title {
+    width: auto;
+    height: auto;
+    margin-left: 0;
+    margin-left: 0;
+    margin-bottom: 20px;
+    /*text-align: center;*/
+  }
+
+  .about__text {
+    width: 288px;
+    height: auto;
+    font-size: 18px;
+    margin-left: 0;
+    position: static;
+    top: auto;
+    left: auto;
+  }
+
+  .about__text-content {
+    width: 100%;
+    max-width: 288px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    order: 2;
+  }
+}
