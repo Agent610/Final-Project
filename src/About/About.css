@@ -50,7 +50,9 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  color: #1a1b22;
 }
+
 /* Tablet view*/
 @media screen and (max-width: 768px) {
   .about {
