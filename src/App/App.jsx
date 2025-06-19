@@ -236,7 +236,7 @@ function App() {
             <Route
               path="/"
               element={
-                <div>
+                <>
                   {showSearchForm ? (
                     <SearchForm onSearch={handleSearch} />
                   ) : (
@@ -245,7 +245,7 @@ function App() {
                     </button>
                   )}
                   {hasSearched && (
-                    <div>
+                    <>
                       <h2 className="search__title">Search Results</h2>
                       <NewsCardList
                         articles={searchResults}
@@ -254,12 +254,13 @@ function App() {
                         savedArticles={savedArticles}
                         onDeleteArticle={handleDeleteArticle}
                       />
-                    </div>
+                    </>
                   )}
-                </div>
+                  <About />
+                </>
               }
             />
-            <Route path="/about" element={<About />} />
+            {/* <Route path="/about" element={<About />} /> */}
             <Route
               path="/saved-news"
               element={
@@ -273,7 +274,7 @@ function App() {
               }
             />
           </Routes>
-          {location.pathname === "/" && <About />}
+          {/* {location.pathname === "/" && <About />} */}
         </Main>
 
         <Footer></Footer>

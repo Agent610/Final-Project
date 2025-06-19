@@ -73,7 +73,7 @@ function Main({ isLoggedIn, children }) {
   };
 
   return (
-    <div className="main">
+    <main className="main">
       <h1 className="main__title">What's going on in the world ?</h1>
       <p className="main__info">
         Find the latest news on any topic and save them into your account
@@ -99,7 +99,7 @@ function Main({ isLoggedIn, children }) {
           />
         ))}
       </section>
-    </div>
+    </main>
   );
 }
 export default Main;
