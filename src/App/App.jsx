@@ -229,6 +229,9 @@ function App() {
           currentUser={currentUser}
           handleSigninClick={() => setActiveModal("login")}
           handleSignoutClick={handleSignoutClick}
+          showSearchForm={showSearchForm}
+          handleSearch={handleSearch}
+          setShowSearchForm={setShowSearchForm}
         />
 
         <Main>
@@ -237,13 +240,6 @@ function App() {
               path="/"
               element={
                 <>
-                  {showSearchForm ? (
-                    <SearchForm onSearch={handleSearch} />
-                  ) : (
-                    <button onClick={() => setShowSearchForm(true)}>
-                      Search
-                    </button>
-                  )}
                   {hasSearched && (
                     <>
                       <h2 className="search__title">Search Results</h2>

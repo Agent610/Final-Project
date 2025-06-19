@@ -13,7 +13,7 @@
 }
 
 .about__title {
-  width: auto;
+  /* width: auto; */
   height: 46px;
   margin-left: 0;
   margin-bottom: 20px;
@@ -24,7 +24,7 @@
 }
 
 .about__text {
-  width: auto;
+  /* width: auto; */
   height: 120px;
   top: 201px;
   left: 624px;

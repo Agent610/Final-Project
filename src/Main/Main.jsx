@@ -74,10 +74,10 @@ function Main({ isLoggedIn, children }) {
 
   return (
     <main className="main">
-      <h1 className="main__title">What's going on in the world ?</h1>
+      {/* <h1 className="main__title">What's going on in the world ?</h1>
       <p className="main__info">
         Find the latest news on any topic and save them into your account
-      </p>
+      </p> */}
       <div className="main__children">{children}</div>
 
       <section className="main__search-results">

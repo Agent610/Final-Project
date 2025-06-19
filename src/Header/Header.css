@@ -1,13 +1,15 @@
 .header {
-  display: flex;
+  /* display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between; */
   /* width: 100%; */
   width: auto;
-  height: 80px;
   margin: 0 auto;
   padding: 0 104px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  background-image: url(../../images/georgia-de-lotz--UsJoNxLaNo-unsplash.png);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .header__logo {
@@ -21,6 +23,14 @@
   font-size: 20px;
   line-height: 24px;
 }
+
+.header__nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: auto;
+}
+
 /* .header__signIn {
   border: none;
 } */

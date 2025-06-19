@@ -16,8 +16,12 @@
 .footer__copyright {
   margin: 0;
   font-size: 16px;
-  color: #333;
+  color: #b6bcbf;
   order: 1;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
 }
 
 .footer__nav {
@@ -25,7 +29,7 @@
   align-items: center;
   gap: 20px;
   order: 2;
-  margin-left: 620px;
+  /* margin-left: 620px; */
 }
 
 .footer__nav-link {
@@ -72,10 +76,10 @@
   }
 
   .footer__nav {
-    margin-bottom: 0;
+    /* margin-bottom: 0;
     gap: 15px;
     margin-left: 0;
-    order: 2;
+    order: 2; */
   }
 
   .footer__icons {
