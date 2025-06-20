@@ -15,7 +15,7 @@ function NewsCardList({
   const validArticles = articles.filter((article) => article.urlToImage);
 
   if (!validArticles || validArticles.length === 0) {
-    return <p className="newscard-list__no-results">No articles found</p>;
+    return <p className="newscard-list__no-results">Nothing found</p>;
   }
 
   const handleShowMore = () => {

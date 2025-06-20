@@ -21,6 +21,7 @@
   font-weight: 400;
   font-size: 40px;
   line-height: 46px;
+  margin-top: 131px;
 }
 
 .about__text {
@@ -32,6 +33,7 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 24px;
+  /* margin-top: 201px; */
 }
 
 .about__image {
@@ -39,6 +41,7 @@
   height: 464px;
   object-fit: cover;
   border-radius: 1000px;
+  margin-top: 80px;
 }
 
 .about__image-container {

@@ -11,6 +11,8 @@
   line-height: 64px;
   letter-spacing: 0px;
   color: white;
+  max-width: 608px;
+  margin: 0;
 }
 
 .main__info {
@@ -33,3 +35,16 @@
 
 .main__about {
 } */
+
+@media screen and (max-width: 768px) {
+  .main__title {
+    max-width: 385px;
+    font-size: 36px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .main__title {
+    max-width: 285px;
+  }
+}

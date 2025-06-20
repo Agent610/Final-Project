@@ -7,6 +7,7 @@ function Navigation({
   currentUser,
   handleSigninClick,
   handleSignoutClick,
+  isNewsPage,
 }) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const toggleMenu = () => {
