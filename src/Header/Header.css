@@ -44,6 +44,13 @@
   margin-left: auto;
 }
 
+.header__search-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .header__saved-news {
   width: auto;
   margin: 0 auto;

@@ -43,6 +43,10 @@
   }
 }
 
+.main__info {
+  max-width: 452px;
+}
+
 @media screen and (max-width: 320px) {
   .main__title {
     max-width: 285px;

@@ -80,6 +80,17 @@
   border-width: 3px;
 }
 
+.nav-list_saved-news .nav-list__link,
+.nav-list_saved-news .nav-list__link-home,
+.nav-list_saved-news .nav-list__button {
+  color: black;
+  border-color: black;
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+}
+
 .hamburger-menu {
   display: none;
   background: none;
@@ -192,7 +203,7 @@
   }
 
   .mobile-menu__content {
-    background-color: white;
+    /* background-color: white; */
     height: 100vh;
     position: relative;
     padding-top: 16px;

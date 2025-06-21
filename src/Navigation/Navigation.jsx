@@ -45,7 +45,11 @@ function Navigation({
       {window.innerWidth <= 320 && (
         <div className={`mobile-menu ${isMenuOpen ? "mobile-menu-open" : ""}`}>
           <div className="mobile-menu__content">
-            <ul className="mobile-menu__list">
+            <ul
+              className={`mobile-menu__list ${
+                isNewsPage ? "nav-list_saved-news" : ""
+              }`}
+            >
               <li className="nav-list__item">
                 <Link to="/" className="nav-list__link nav-list__link-home">
                   Home
@@ -79,7 +83,7 @@ function Navigation({
       )}
 
       {/* Desktop Menu */}
-      <ul className="nav-list">
+      <ul className={`nav-list ${isNewsPage ? "nav-list_saved-news" : ""}`}>
         <li className="nav-list__item">
           <Link to="/" className="nav-list__link nav-list__link-home">
             Home
