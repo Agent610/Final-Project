@@ -20,17 +20,30 @@
   background-color: #fff;
   color: black;
   border-radius: 80px;
-  cursor: pointer;
   transition: opacity 0.3s ease;
   width: 288px;
   height: 64px;
+  font-family: "Roboto";
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
 }
 
 .newscard-list__show-more:hover {
   opacity: 0.8;
+  color: #e8e8e8;
+  cursor: pointer;
 }
 
 .newscard-list__no-results {
+  height: 374px;
+  border: 1px;
+  background-color: #d1d2d6;
+  font-family: "Roboto Slab";
+  font-weight: 400;
+  font-size: 26px;
+  line-height: 30px;
+  align-items: center;
 }
 
 @media screen and (max-width: 320px) {

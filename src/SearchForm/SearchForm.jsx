@@ -22,17 +22,19 @@ function SearchForm({ onSearch }) {
 
   return (
     <form className="search-form" onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="Enter topic"
-        className="search-input"
-        value={searchQuery}
-        onChange={handleInputChange}
-      />
+      <div className="search-form__row">
+        <input
+          type="text"
+          placeholder="Enter topic"
+          className="search-input"
+          value={searchQuery}
+          onChange={handleInputChange}
+        />
+        <button className="search__button" type="submit">
+          Search
+        </button>
+      </div>
       {error && <p className="search-form__error">{error}</p>}
-      <button className="search__button" type="submit">
-        Search
-      </button>
     </form>
   );
 }

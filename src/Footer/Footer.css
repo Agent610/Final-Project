@@ -22,6 +22,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 22px;
+  margin-left: 104px;
 }
 
 .footer__nav {
@@ -29,7 +30,7 @@
   align-items: center;
   gap: 20px;
   order: 2;
-  /* margin-left: 620px; */
+  margin-left: 524px;
 }
 
 .footer__nav-link {
@@ -41,6 +42,10 @@
   font-weight: 400;
   font-size: 18px;
   line-height: 24px;
+}
+
+.footer__nav-link:hover {
+  cursor: pointer;
 }
 
 .footer__nav-link:nth-last-child(2) {
