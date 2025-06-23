@@ -1,6 +1,7 @@
 import React from "react";
 import NewsCardList from "../NewsCardList/NewsCardList";
 import NewsCard from "../NewsCard/NewsCard";
+import "./SavedNews.css";
 
 const SavedNews = ({
   savedArticles,
@@ -18,11 +19,13 @@ const SavedNews = ({
   }));
 
   return (
-    <div>
-      <h2>
-        {userName} , you have {savedArticles.length} saved{" "}
-        {savedArticles.length === 1 ? "article" : "articles"}
-      </h2>
+    <main className="saved-news-page">
+      <div className="saved-news-header">
+        <h2>
+          {userName} , you have {savedArticles.length} saved{" "}
+          {savedArticles.length === 1 ? "article" : "articles"}
+        </h2>
+      </div>
 
       {savedArticles.length === 0 ? (
         <p>You haven't saved any articles </p>
@@ -35,7 +38,7 @@ const SavedNews = ({
           onDeleteArticle={onDeleteArticle}
         />
       )}
-    </div>
+    </main>
   );
 };
 

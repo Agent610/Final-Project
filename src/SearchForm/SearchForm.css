@@ -16,6 +16,7 @@
   display: flex;
   align-items: center;
   /* gap: 16px; */
+  position: relative;
 }
 
 .search-input {
@@ -52,6 +53,9 @@
   letter-spacing: 0px;
   transition: background-color 0.3s ease;
   border: none;
+  top: 0;
+  right: 0;
+  position: absolute;
 }
 
 .search__button:hover {
