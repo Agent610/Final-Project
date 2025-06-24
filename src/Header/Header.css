@@ -23,6 +23,8 @@
   font-weight: 700;
   font-size: 20px;
   line-height: 24px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .header__saved-news-logo {
@@ -65,3 +67,11 @@
 /* .header__signIn {
   border: none;
 } */
+
+/* Tablet view */
+@media screen and (max-width: 768px) {
+  .header__logo {
+    width: 200px;
+    height: 24.8px;
+  }
+}

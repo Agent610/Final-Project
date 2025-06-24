@@ -136,13 +136,12 @@
     gap: 24px;
   }
 
-  /* .nav-list__button {
-    margin-bottom: 132px;
-  } */
+  .nav-list__button {
+    margin-left: 40px;
+  }
 
   .nav-list__link-home {
-    /* left: 382px;
-    top: -68px; */
+    margin-left: 8px;
   }
 
   .mobile-menu {

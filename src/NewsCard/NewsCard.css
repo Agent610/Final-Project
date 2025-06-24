@@ -1,3 +1,4 @@
+/*Desktop view */
 .news-card {
   width: 400px;
   height: 576px;
@@ -93,4 +94,37 @@
 
 .news-card__save-button:hover {
   cursor: pointer;
+}
+
+/*Tablet */
+@media screen and (max-width: 768px) {
+  .news-card {
+    width: 224px;
+    height: 420px;
+  }
+
+  .news-card__image {
+    width: 224px;
+    height: 150px;
+  }
+
+  .news-card__image-container {
+    width: 224px;
+    height: 150px;
+  }
+
+  .news-card__date {
+    width: 148px;
+  }
+
+  .news-card__title {
+    width: 192px;
+    font-size: 22px;
+    line-height: 24px;
+  }
+
+  .news-card__description {
+    width: 192px;
+    height: 88px;
+  }
 }

@@ -31,12 +31,15 @@
   gap: 20px;
   order: 2;
   margin-left: 524px;
+  flex: 1 1 auto;
 }
 
 .footer__nav-link {
   text-decoration: none;
   color: black;
-  width: 49px;
+  /* width: 49px; */
+  width: auto;
+  min-width: max-content;
   height: 24px;
   font-family: "Roboto";
   font-weight: 400;
@@ -75,9 +78,9 @@
   }
 
   .footer__content {
-    gap: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
     justify-content: space-between;
-    flex-direction: row;
   }
 
   .footer__nav {
@@ -85,14 +88,17 @@
     gap: 15px;
     margin-left: 0;
     order: 2; */
+    margin-left: 0;
+    flex-wrap: wrap;
   }
 
   .footer__icons {
-    order: 3;
+    margin-left: 0;
   }
 
   .footer__copyright {
-    order: 1;
+    margin-left: 0;
+    flex: 1 1 auto;
   }
 }
 

@@ -41,12 +41,15 @@
   .main__title {
     max-width: 385px;
     font-size: 36px;
+    line-height: 40px;
+  }
+
+  .main__info {
+    max-width: 452px;
+    height: 48px;
+    margin-left: 73px;
   }
 }
-
-/* .main__info {
-  max-width: 452px;
-} */
 
 @media screen and (max-width: 320px) {
   .main__title {
