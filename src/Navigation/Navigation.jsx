@@ -8,6 +8,7 @@ function Navigation({
   handleSigninClick,
   handleSignoutClick,
   isNewsPage,
+  handleMobileClick,
 }) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const toggleMenu = () => {
@@ -24,7 +25,7 @@ function Navigation({
 
   return (
     <nav className="navigation">
-      <button className="hamburger-menu" onClick={toggleMenu}>
+      <button className="hamburger-menu" onClick={handleMobileClick}>
         {isMenuOpen ? (
           /*Close (X) icon */
           <div className="close-icon">

@@ -12,6 +12,7 @@ function Header({
   showSearchForm,
   handleSearch,
   setShowSearchForm,
+  handleMobileClick,
 }) {
   const location = useLocation();
   const isNewsPage = location.pathname === "/saved-news";
@@ -29,6 +30,7 @@ function Header({
           handleSigninClick={handleSigninClick}
           handleSignoutClick={handleSignoutClick}
           isNewsPage={isNewsPage}
+          handleMobileClick={handleMobileClick}
         />
       </div>
 

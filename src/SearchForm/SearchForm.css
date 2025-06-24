@@ -70,9 +70,22 @@
 
 @media screen and (max-width: 320px) {
   .search-form {
+    display: flex;
     flex-direction: column;
   }
+
+  .search-input {
+    width: 288px;
+  }
+
   .search__button {
     width: auto;
+    top: 80px;
+    right: 0;
+    left: 0;
+  }
+
+  .search-form__row {
+    flex-direction: column;
   }
 }

@@ -26,6 +26,7 @@ import {
 import { getItems, saveArticle, deleteArticle } from "../../utils/api";
 import { searchNews } from "../../utils/news";
 import SavedNews from "../SavedNews/SavedNews";
+import MobileModal from "../MobileModal/MobileModal";
 
 function App() {
   const location = useLocation();
@@ -232,6 +233,7 @@ function App() {
           showSearchForm={showSearchForm}
           handleSearch={handleSearch}
           setShowSearchForm={setShowSearchForm}
+          handleMobileClick={() => setActiveModal("mobile")}
         />
 
         <Main>
@@ -292,6 +294,11 @@ function App() {
         <RegisterModal
           isOpen={activeModal === "register"}
           onSubmit={handleRegister}
+          onClose={handleCloseModal}
+          handleSigninClick={() => setActiveModal("login")}
+        />
+        <MobileModal
+          isOpen={activeModal === "mobile"}
           onClose={handleCloseModal}
           handleSigninClick={() => setActiveModal("login")}
         />
