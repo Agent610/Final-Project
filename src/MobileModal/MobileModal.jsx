@@ -1,14 +1,17 @@
-//import React, { useState } from "react";
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
 import "./MobileModal.css";
 import { Link } from "react-router-dom";
+import CloseButton from "../../images/close.svg";
 
 const MobileModal = ({ isOpen, onClose, handleSigninClick }) => {
   return (
     <div className={`modal modal-mobile ${isOpen ? "modal_opened" : ""}`}>
       <div className="mobile">
         <button className="mobile__close" onClick={onClose}>
-          close
+          <img
+            src={CloseButton}
+            alt="Close-button"
+            className="mobile__close-button"
+          />
         </button>
         <Link to="/" className="mobile__link" onClick={onClose}>
           Home
@@ -17,9 +20,8 @@ const MobileModal = ({ isOpen, onClose, handleSigninClick }) => {
           type="button"
           className="mobile__button"
           onClick={handleSigninClick}
-          //   disabled={!isFormValid || isLoading}
         >
-          {/* {isLoading ? "Signing in ..." : "Sign in"} */}
+          Sign in
         </button>
       </div>
     </div>

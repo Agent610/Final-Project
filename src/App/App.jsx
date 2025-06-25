@@ -258,7 +258,6 @@ function App() {
                 </>
               }
             />
-            {/* <Route path="/about" element={<About />} /> */}
             <Route
               path="/saved-news"
               element={
@@ -272,7 +271,6 @@ function App() {
               }
             />
           </Routes>
-          {/* {location.pathname === "/" && <About />} */}
         </Main>
 
         <Footer></Footer>

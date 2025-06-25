@@ -1,3 +1,4 @@
+/* Desktop */
 .login__link {
   width: fit-content;
   border: none;
@@ -23,6 +24,9 @@
   border: none;
   border-bottom: 1px solid;
   padding: 8px;
+  font-family: "Inter";
+  font-weight: 400;
+  font-size: 14px;
 }
 
 .modal__error {
@@ -32,6 +36,7 @@
   font-size: 14px;
 }
 
+/* Mobile */
 @media screen and (max-width: 320px) {
   .login__link {
     margin-left: 20px;

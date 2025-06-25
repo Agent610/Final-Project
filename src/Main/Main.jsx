@@ -5,7 +5,6 @@ const API_KEY = "fb6cff6571004bdb8d9f0274dc7989a1";
 
 function Main({ isLoggedIn, children }) {
   const [articles, setArticles] = useState([]);
-  //const [searchTerm, setSearchTerm] = useState([]);
   const [loading, setLoading] = useState([]);
   const [error, setError] = useState([]);
 
@@ -74,15 +73,9 @@ function Main({ isLoggedIn, children }) {
 
   return (
     <main className="main">
-      {/* <h1 className="main__title">What's going on in the world ?</h1>
-      <p className="main__info">
-        Find the latest news on any topic and save them into your account
-      </p> */}
       <div className="main__children">{children}</div>
 
       <section className="main__search-results">
-        {/* {loading && <p>Loading...</p>}
-        {error && <p>Error</p>} */}
         {articles.map((article, index) => (
           <NewsCard
             key={index}

@@ -1,3 +1,4 @@
+/* Desktop */
 .modal {
   position: fixed;
   top: 0;
@@ -27,14 +28,13 @@
 }
 
 .modal__title {
-  width: 76px;
+  width: 83px;
   height: 32px;
   font-family: "Roboto";
   font-weight: 900;
   font-size: 24px;
   line-height: 100%;
   color: #000000;
-  /* margin-left: 28px; */
 }
 
 .modal__close {
@@ -73,6 +73,8 @@
   opacity: 0.6;
   margin-bottom: 16px;
 }
+
+/* Mobile */
 @media screen and (max-width: 320px) {
   .modal {
     position: fixed;
@@ -100,5 +102,6 @@
   .modal__submit {
     margin-left: auto;
     margin-right: auto;
+    width: 288px;
   }
 }

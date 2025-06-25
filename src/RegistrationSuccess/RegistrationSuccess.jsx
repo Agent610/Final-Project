@@ -1,4 +1,5 @@
 import React from "react";
+import "./RegistrationSuccess.css";
 
 function RegistrationSuccess({ onClose }) {
   return (

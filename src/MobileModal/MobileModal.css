@@ -1,3 +1,4 @@
+/* Mobile View */
 @media screen and (max-width: 320px) {
   .mobile {
     background-color: #1a1b22;
@@ -5,11 +6,50 @@
     width: 100%;
     position: fixed;
     top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 60px;
   }
 
   .mobile__link {
+    width: 288px;
+    height: 56px;
+    font-family: "Roboto";
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 56px;
+    margin-left: 16px;
+    margin-bottom: 20px;
+    text-align: left;
   }
 
   .mobile__button {
+    width: 288px;
+    height: 56px;
+    font-family: "Roboto";
+    font-weight: 500;
+    font-size: 18px;
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+    border-radius: 100px;
+    cursor: pointer;
+    text-align: center;
+  }
+
+  .mobile__close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .mobile__close-icon {
+    width: 24px;
+    height: 24px;
   }
 }

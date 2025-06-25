@@ -1,8 +1,4 @@
 .header {
-  /* display: flex;
-  align-items: center;
-  justify-content: space-between; */
-  /* width: 100%; */
   width: auto;
   margin: 0 auto;
   padding: 0 104px;
@@ -17,7 +13,7 @@
   position: relative;
   z-index: 1001;
   color: white;
-  /* width: 200px; */
+
   height: 24px;
   font-family: "Roboto Slab";
   font-weight: 700;
@@ -31,7 +27,7 @@
   position: relative;
   z-index: 1001;
   color: #1a1b22;
-  /* width: 200px; */
+
   height: 24px;
   font-family: "Roboto Slab";
   font-weight: 700;
@@ -44,6 +40,7 @@
   align-items: center;
   justify-content: space-between;
   margin-left: auto;
+  border-bottom: 1px solid #fff;
 }
 
 .header__search-form {
@@ -58,15 +55,7 @@
   margin: 0 auto;
   padding: 0 104px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  /* background-image: url(../../images/georgia-de-lotz--UsJoNxLaNo-unsplash.png);
-  background-repeat: no-repeat;
-  background-size: cover; */
-  /* height: 576px; */
 }
-
-/* .header__signIn {
-  border: none;
-} */
 
 /* Tablet view */
 @media screen and (max-width: 768px) {

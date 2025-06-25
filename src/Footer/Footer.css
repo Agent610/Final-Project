@@ -37,7 +37,6 @@
 .footer__nav-link {
   text-decoration: none;
   color: black;
-  /* width: 49px; */
   width: auto;
   min-width: max-content;
   height: 24px;
@@ -71,6 +70,7 @@
   opacity: 0.7;
 }
 
+/* Tablet View */
 @media screen and (max-width: 768px) {
   .footer {
     padding: 10px 15px;
@@ -84,10 +84,6 @@
   }
 
   .footer__nav {
-    /* margin-bottom: 0;
-    gap: 15px;
-    margin-left: 0;
-    order: 2; */
     margin-left: 0;
     flex-wrap: wrap;
   }
@@ -102,6 +98,7 @@
   }
 }
 
+/*Mobile */
 @media screen and (max-width: 320px) {
   .footer {
     padding: 20px;
@@ -113,7 +110,6 @@
     align-items: flex-start;
     gap: 5px;
     position: relative;
-    /* padding-top: 10px; */
   }
 
   .footer__nav {
@@ -146,5 +142,6 @@
     color: #999;
     font-size: 16px;
     order: 3;
+    width: 288px;
   }
 }
