@@ -89,6 +89,9 @@
 
 .news-card__save-button:hover {
   cursor: pointer;
+  background-color: #245dd8;
+  color: #ffff;
+  border: 1px solid #245dd8;
 }
 
 /*Tablet */

@@ -16,6 +16,11 @@
   left: 170px;
 }
 
+.register__link:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .registration-success {
   text-align: center;
   padding: 20px;

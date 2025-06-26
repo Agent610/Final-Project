@@ -10,6 +10,11 @@
   margin-left: 5px;
 }
 
+.login__link:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 .modal__label {
   color: #2f71e5;
   text-align: left;

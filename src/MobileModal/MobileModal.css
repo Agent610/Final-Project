@@ -24,6 +24,11 @@
     text-align: left;
   }
 
+  .mobile__link:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
   .mobile__button {
     width: 288px;
     height: 56px;
@@ -36,6 +41,13 @@
     border-radius: 100px;
     cursor: pointer;
     text-align: center;
+  }
+
+  .mobile__button:hover {
+    background-color: #245dd8;
+    color: #ffff;
+    border: 1px solid #245dd8;
+    cursor: pointer;
   }
 
   .mobile__close {

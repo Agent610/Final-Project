@@ -48,16 +48,19 @@
 
 .footer__nav-link:hover {
   cursor: pointer;
+  text-decoration: underline;
 }
 
 .footer__nav-link:nth-last-child(2) {
   margin-left: 20px;
 }
+
 .footer__icon {
   width: 20px;
   height: 20px;
   transition: opacity 0.2s;
 }
+
 .footer__icons {
   display: flex;
   gap: 15px;
