@@ -14,24 +14,26 @@
 
 .newscard-list__show-more {
   display: block;
-  margin: 0 auto 32px;
-  padding: 12px 24px;
+  margin: 64px auto 0;
+  padding: 20px 60px;
+  cursor: pointer;
   background-color: #fff;
-  color: black;
+  color: #1a1b22;
+  border: 1px solid #1a1b22;
   border-radius: 80px;
-  transition: opacity 0.3s ease;
-  width: 288px;
-  height: 64px;
   font-family: "Roboto";
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
+  width: 288px;
+  height: 64px;
+  text-align: center;
+  transition: background-color 0.3 ease, color 0.3s ease;
 }
 
 .newscard-list__show-more:hover {
-  opacity: 0.8;
-  color: #e8e8e8;
-  cursor: pointer;
+  background-color: #1a1b22;
+  color: #fff;
 }
 
 .newscard-list__no-results {
