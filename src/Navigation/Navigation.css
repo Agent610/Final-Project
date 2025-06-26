@@ -33,14 +33,13 @@
 .nav-list__link {
   text-decoration: none;
   color: #b6bcbf;
-  font-family: "Roboto";
+  font-family: "Roboto", Arial, sans-serif;
   font-size: 18px;
   font-weight: 500;
   white-space: nowrap;
 }
 
 .nav-list__link:hover {
-  /* border-bottom: 68px solid #ffff; */
   border-width: 3px;
   text-decoration: underline;
   cursor: pointer;
@@ -51,14 +50,13 @@
   color: #ffff;
   width: 49px;
   height: 24px;
-  font-family: "Roboto";
+  font-family: "Roboto", Arial, sans-serif;
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
 }
 
 .nav-list__link-home:hover {
-  /* border-bottom: 68px solid #ffffff; */
   border-width: 3px;
   text-decoration: underline;
   cursor: pointer;
@@ -70,7 +68,7 @@
   background: transparent;
   color: #ffffff;
   border: 1px solid white;
-  font-family: "Roboto";
+  font-family: "Roboto", Arial, sans-serif;
   font-size: 18px;
   cursor: pointer;
   transition: 0.3s ease;
@@ -92,7 +90,7 @@
 .nav-list_saved-news .nav-list__button {
   color: black;
   border-color: black;
-  font-family: "Roboto";
+  font-family: "Roboto", Arial, sans-serif;
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;

@@ -15,7 +15,7 @@
   .mobile__link {
     width: 288px;
     height: 56px;
-    font-family: "Roboto";
+    font-family: "Roboto", Arial, sans-serif;
     font-weight: 500;
     font-size: 18px;
     line-height: 56px;
@@ -32,7 +32,7 @@
   .mobile__button {
     width: 288px;
     height: 56px;
-    font-family: "Roboto";
+    font-family: "Roboto", Arial, sans-serif;
     font-weight: 500;
     font-size: 18px;
     background-color: transparent;

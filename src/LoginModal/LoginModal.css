@@ -29,7 +29,7 @@
   border: none;
   border-bottom: 1px solid;
   padding: 8px;
-  font-family: "Inter";
+  font-family: "Inter", Helvetica, sans-serif;
   font-weight: 400;
   font-size: 14px;
 }
