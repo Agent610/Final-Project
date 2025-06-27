@@ -24,17 +24,19 @@
   box-sizing: border-box;
   width: 100%;
   border-radius: 20px;
-  height: 458px;
+  /* height: 458px; */
 }
 
 .modal__title {
-  width: 83px;
+  /* width: 83px; */
+  margin: 0 0 20px 0;
   height: 32px;
   font-family: "Roboto", Arial, sans-serif;
   font-weight: 900;
   font-size: 24px;
   line-height: 100%;
   color: #000000;
+  text-align: left;
 }
 
 .modal__close {
@@ -50,13 +52,18 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  gap: 15px;
+  margin-top: 30px;
 }
 
 .modal__submit {
-  width: 360px;
+  width: 100%;
+  max-width: 360px;
+  margin: 24px auto 0;
+  /* width: 360px; */
   height: 64px;
-  margin-top: 20px;
-  margin-left: 40px;
+  /* margin-top: 20px;
+  margin-left: 40px; */
   cursor: pointer;
   background-color: #2f71e5;
   font-family: "Roboto", Arial, sans-serif;
@@ -86,6 +93,7 @@
   background-color: #cccc;
   color: #666;
 }
+
 /* Mobile */
 @media screen and (max-width: 320px) {
   .modal {

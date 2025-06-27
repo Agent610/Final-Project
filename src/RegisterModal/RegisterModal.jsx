@@ -79,19 +79,21 @@ const RegisterModal = ({ isOpen, onSubmit, onClose, handleSigninClick }) => {
             required
           />
         </label>
-        <button
-          type="button"
-          className="register__link"
-          onClick={handleSigninClick}
-        >
-          or Sign in
-        </button>
+
         <button
           type="submit"
           className="modal__submit"
           disabled={!isFormValid || isLoading}
         >
           {isLoading ? "Signing up..." : "Signup"}
+        </button>
+
+        <button
+          type="button"
+          className="register__link"
+          onClick={handleSigninClick}
+        >
+          or Sign in
         </button>
       </ModalWithForm>
     </div>
