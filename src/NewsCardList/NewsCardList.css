@@ -50,7 +50,16 @@
 /*Tablet View*/
 @media screen and (max-width: 768px) {
   .newscard-list {
-    max-width: 768px;
+    /* max-width: 768px;
+    padding: 0 12px; */
+    /* box-sizing: border-box; */
+    max-width: 100%;
+    padding: 0 16px;
+  }
+
+  .newscard-list__container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
   }
 
   .newscard-list__show-more {
