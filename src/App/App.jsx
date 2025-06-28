@@ -299,6 +299,9 @@ function App() {
           isOpen={activeModal === "mobile"}
           onClose={handleCloseModal}
           handleSigninClick={() => setActiveModal("login")}
+          isLoggedIn={isLoggedIn}
+          handleSignoutClick={handleSignoutClick}
+          currentUser={currentUser}
         />
       </div>
     </div>
