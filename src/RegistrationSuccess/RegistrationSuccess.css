@@ -24,7 +24,7 @@
   color: #2f71e5;
   cursor: pointer;
   padding: 0;
-  font-family: "Inter";
+  font-family: "Inter", Helvetica, sans-serif;
   font-size: 16px;
   font-weight: 500;
   line-height: 100%;
@@ -32,6 +32,11 @@
 
 .registration-success__button:hover {
   text-decoration: underline;
+}
+
+.registration-success__button:focus {
+  outline: 2px solid #2f71e5;
+  outline-offset: 2px;
 }
 
 .modal__close-button {
@@ -49,4 +54,9 @@
 
 .modal__close-button:hover {
   cursor: pointer;
+}
+
+.modal__close-button:focus {
+  outline: 2px solid #2f71e5;
+  outline-offset: 2px;
 }

@@ -4,6 +4,7 @@
   /* height: 576px; */
   top: 766px;
   left: 104px;
+  background-color: #fff;
 }
 
 .news-card__image {
@@ -139,6 +140,12 @@
   background-color: #245dd8;
   color: #ffff;
   border: 1px solid #245dd8;
+}
+
+.news-card__save-button:focus-visible {
+  outline: 2px solid #2f71e5;
+  outline-offset: 2px;
+  border-radius: 50%;
 }
 
 /*Tablet */

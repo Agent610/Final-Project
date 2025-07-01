@@ -44,6 +44,12 @@
   cursor: pointer;
 }
 
+.nav-list__link:focus-visible {
+  outline: 2px solid #2f71e5;
+  outline-offset: 2px;
+  text-decoration: underline;
+}
+
 .nav-list__link-home {
   text-decoration: none;
   color: #ffff;
@@ -59,6 +65,12 @@
   border-width: 3px;
   text-decoration: underline;
   cursor: pointer;
+}
+
+.nav-list__link-home:focus-visible {
+  outline: 2px solid #2f71e5;
+  outline-offset: 2px;
+  text-decoration: underline;
 }
 
 .nav-list__button {
@@ -84,6 +96,11 @@
   cursor: pointer;
 }
 
+.nav-list__button:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
 .nav-list_saved-news .nav-list__link,
 .nav-list_saved-news .nav-list__link-home,
 .nav-list_saved-news .nav-list__button {
@@ -93,6 +110,10 @@
   font-weight: 500;
   font-size: 18px;
   line-height: 24px;
+}
+
+.nav-list_saved .nav-list__button:focus-visible {
+  outline: 2px solid #1a1b22;
 }
 
 .nav-list__logout {
@@ -113,6 +134,11 @@
   position: relative;
 }
 
+.hamburger-menu:focus-visible {
+  outline: 2px solid #1a1b22;
+  outline-offset: 2px;
+}
+
 .hamburger-menu__line {
   width: 100%;
   height: 2px;
@@ -130,6 +156,12 @@
   background-color: rgba(0, 0, 0, 0.5);
   height: 100vh;
   z-index: 1000;
+}
+
+.mobile-menu__list .nav-list__link-home:focus-visible {
+  outline: 2px solid #2f71e5;
+  outline-offset: 2px;
+  text-decoration: underline;
 }
 
 /* Tablet */
@@ -265,6 +297,11 @@
     width: 24px;
     height: 24px;
     z-index: 1002;
+  }
+
+  .close-icon:focus-visible {
+    outline: 2px solid #1a1b22;
+    outline-offset: 2px;
   }
 
   .close-icon__line {

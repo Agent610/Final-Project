@@ -24,6 +24,11 @@
   border: none;
 }
 
+.search-input:focus {
+  outline: 2px solid #2f71e5;
+  outline-offset: 2px;
+}
+
 .search-form__error {
   color: red;
   font-size: 16px;
@@ -52,6 +57,11 @@
 
 .search__button:hover {
   background-color: #347eff;
+}
+
+.search__button:focus {
+  outline: 2px solid #2f71e5;
+  outline-offset: 2px;
 }
 
 /* Tablet */

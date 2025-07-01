@@ -19,6 +19,11 @@
   cursor: pointer;
 }
 
+.register__link:focus-visible {
+  outline: 2px solid #2f71e5;
+  outline-offset: 2px;
+}
+
 .registration-success {
   text-align: center;
   padding: 20px;

@@ -30,6 +30,12 @@
     cursor: pointer;
   }
 
+  .mobile__link:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+    text-decoration: underline;
+  }
+
   .mobile__button {
     width: 288px;
     height: 56px;
@@ -51,6 +57,11 @@
     cursor: pointer;
   }
 
+  .mobile__button:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+  }
+
   .mobile__close {
     position: absolute;
     top: 16px;
@@ -59,6 +70,16 @@
     border: none;
     padding: 0;
     cursor: pointer;
+  }
+
+  .mobile__close:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+  }
+
+  .mobile__close:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
   }
 
   .mobile__close-icon {

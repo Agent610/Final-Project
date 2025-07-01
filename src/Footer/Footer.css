@@ -51,6 +51,12 @@
   text-decoration: underline;
 }
 
+.footer__nav-link:focus-visible {
+  outline: 2px solid #2f71e5;
+  outline-offset: 2px;
+  text-decoration: underline;
+}
+
 .footer__nav-link:nth-last-child(2) {
   margin-left: 20px;
 }
@@ -70,6 +76,12 @@
 }
 
 .footer__icon:hover {
+  opacity: 0.7;
+}
+
+.footer__icon:focus-visible {
+  outline: 2px solid #2f71e5;
+  outline-offset: 2px;
   opacity: 0.7;
 }
 

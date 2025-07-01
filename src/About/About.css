@@ -23,13 +23,15 @@
 }
 
 .about__text {
-  height: 120px;
+  /* height: 120px;
   top: 201px;
-  left: 624px;
+  left: 624px; */
+  max-width: 600px;
   font-family: "Roboto", Arial, sans-serif;
   font-weight: 400;
   font-size: 18px;
   line-height: 24px;
+  margin: 0;
 }
 
 .about__image {
@@ -42,7 +44,7 @@
 
 .about__image-container {
   flex: 0 0 auto;
-  width: 30%;
+  /* width: 30%; */
 }
 
 .about__text-content {
