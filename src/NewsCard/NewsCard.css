@@ -85,7 +85,7 @@
 
 .news-card__tooltip {
   position: absolute;
-  top: -40px;
+  /*top: -40px; */
   left: 50%;
   transform: translateX(-50%);
   width: max-content;
@@ -172,7 +172,7 @@
     width: 192px;
     /* height: 88px; */
     font-size: 16px;
-    line-height: 20px;
+
     margin-bottom: 18px;
     overflow-wrap: break-word;
     -webkit-line-clamp: 4;

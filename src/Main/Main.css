@@ -29,6 +29,7 @@
 
 .main__children {
   display: grid;
+  background-color: #f5f6f7;
 }
 
 /* Tablet */

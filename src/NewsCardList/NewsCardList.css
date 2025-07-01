@@ -29,11 +29,12 @@
   height: 64px;
   text-align: center;
   transition: background-color 0.3 ease, color 0.3s ease;
+  margin-bottom: 80px;
 }
 
 .newscard-list__show-more:hover {
-  background-color: #1a1b22;
-  color: #fff;
+  background-color: #e8e8e8;
+  color: #1a1b22;
 }
 
 .newscard-list__no-results {
