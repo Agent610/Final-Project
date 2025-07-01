@@ -36,6 +36,55 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
+.modal__content-login {
+  background-color: white;
+  border-radius: 16px;
+  height: 182px;
+  width: 430px;
+}
+
+.modal__message {
+  font-family: "Roboto";
+  font-weight: 900;
+  font-size: 24px;
+  margin-left: 36px;
+  margin-top: 43px;
+  /* width: 315px;
+  height: 56px; */
+}
+
+.modal__button {
+  margin-left: 36px;
+  padding: 10px 20px;
+  background-color: #2f71e5;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Inter";
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.modal__button:hover {
+  background-color: #1e5acc;
+}
+
+.modal__close-button {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: transparent;
+  background-image: url("../../images/close.svg");
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 768px) {
   .search__title {
     width: 336px;

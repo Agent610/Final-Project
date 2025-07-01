@@ -27,6 +27,7 @@ import { getItems, saveArticle, deleteArticle } from "../../utils/api";
 import { searchNews } from "../../utils/news";
 import SavedNews from "../SavedNews/SavedNews";
 import MobileModal from "../MobileModal/MobileModal";
+import RegistrationSuccess from "../RegistrationSuccess/RegistrationSuccess";
 
 function App() {
   const location = useLocation();
@@ -163,9 +164,9 @@ function App() {
         if (response) {
           setMessage("Registration successfully completed !");
           setActiveModal("registerSuccess");
-          setTimeout(() => {
-            setActiveModal("login");
-          }, 2000);
+          // setTimeout(() => {
+          //   setActiveModal("login");
+          // }, 2000);
         }
       })
       .catch((error) => {
@@ -276,11 +277,28 @@ function App() {
         <Footer></Footer>
 
         {activeModal === "registerSuccess" && (
-          <div className="modal modal_opened">
-            <div className="modal__content">
-              <p>Registration successfully completed !</p>
-            </div>
-          </div>
+          <RegistrationSuccess
+            onClose={handleCloseModal}
+            handleSigninClick={() => setActiveModal("login")}
+          />
+          // <div className="modal modal_opened">
+          //   <button
+          //     className="modal__close-button"
+          //     aria-label="Close"
+          //     onClick={handleCloseModal}
+          //   />
+          //   <div className="modal__content-login">
+          //     <p className="modal__message">
+          //       Registration successfully completed !
+          //     </p>
+          //     <button
+          //       className="modal__button"
+          //       onClick={() => setActiveModal("login")}
+          //     >
+          //       Sign in
+          //     </button>
+          //   </div>
+          // </div>
         )}
 
         <LoginModal

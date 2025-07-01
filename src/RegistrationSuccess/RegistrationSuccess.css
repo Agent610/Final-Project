@@ -1,16 +1,50 @@
-.registration-success {
+.registration-success__modal {
+  position: relative;
   width: 430px;
-  height: 182px;
-  color: #fff;
+  background-color: #fff;
   border-radius: 16px;
+  padding: 40px 36px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0 0.15);
+  text-align: center;
+  box-sizing: border-box;
+  height: 182px;
 }
 
-.registration-success__content {
+.registration-success__message {
   font-family: "Roboto", Arial, sans-serif;
   font-weight: 900;
   font-size: 24px;
+  line-height: 120%;
+  color: #000;
+}
+
+.registration-success__button {
+  background: none;
+  border: none;
+  color: #2f71e5;
+  cursor: pointer;
+  padding: 0;
+  font-family: "Inter";
+  font-size: 16px;
+  font-weight: 500;
   line-height: 100%;
 }
 
-/* .registration-success__button {
-} */
+.registration-success__button:hover {
+  text-decoration: underline;
+}
+
+.modal__close-button {
+  position: absolute;
+  top: -28px;
+  right: -28px;
+  background: transparent;
+  background-image: url("../../images/close.svg");
+
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  cursor: pointer;
+}
