@@ -1,7 +1,6 @@
 .header {
   width: auto;
   margin: 0 auto;
-  padding: 0 104px;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   background-image: url(../../images/georgia-de-lotz--UsJoNxLaNo-unsplash.png);
   background-repeat: no-repeat;
@@ -41,6 +40,7 @@
   justify-content: space-between;
   margin-left: auto;
   border-bottom: 1px solid #c4c4c4;
+  padding: 0 104px;
 }
 
 .header__search-form {
@@ -53,7 +53,7 @@
 .header__saved-news {
   width: auto;
   margin: 0 auto;
-  padding: 0 104px;
+  /* padding: 0 104px; */
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 

@@ -5,3 +5,9 @@
   padding: 0 104px;
   box-sizing: border-box;
 }
+
+/* @media screen and (max-width: 768px) {
+  .saved-news-page {
+    padding: 0 81px;
+  }
+} */
