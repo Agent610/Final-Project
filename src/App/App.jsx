@@ -85,7 +85,7 @@ function App() {
     searchNews(query)
       .then((response) => {
         setSearchResults(response);
-        setShowSearchForm(false);
+        setShowSearchForm(true);
       })
       .catch((error) => {
         console.error("Error loading news:", error);
@@ -281,24 +281,6 @@ function App() {
             onClose={handleCloseModal}
             handleSigninClick={() => setActiveModal("login")}
           />
-          // <div className="modal modal_opened">
-          //   <button
-          //     className="modal__close-button"
-          //     aria-label="Close"
-          //     onClick={handleCloseModal}
-          //   />
-          //   <div className="modal__content-login">
-          //     <p className="modal__message">
-          //       Registration successfully completed !
-          //     </p>
-          //     <button
-          //       className="modal__button"
-          //       onClick={() => setActiveModal("login")}
-          //     >
-          //       Sign in
-          //     </button>
-          //   </div>
-          // </div>
         )}
 
         <LoginModal

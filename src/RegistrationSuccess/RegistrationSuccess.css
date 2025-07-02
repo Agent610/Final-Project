@@ -5,7 +5,6 @@
   border-radius: 16px;
   padding: 40px 36px;
   box-shadow: 0 4px 10px rgba(0, 0, 0 0.15);
-  text-align: center;
   box-sizing: border-box;
   height: 182px;
 }
@@ -14,7 +13,7 @@
   font-family: "Roboto", Arial, sans-serif;
   font-weight: 900;
   font-size: 24px;
-  line-height: 100%;
+  line-height: 1.2;
   color: #000;
 }
 

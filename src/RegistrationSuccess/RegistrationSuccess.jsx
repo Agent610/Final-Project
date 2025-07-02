@@ -11,8 +11,7 @@ function RegistrationSuccess({ onClose, handleSigninClick }) {
           onClick={onClose}
         />
         <h2 className="registration-success__message">
-          Registration successfully <br />
-          completed!
+          Registration successfully completed!
         </h2>
         <button
           onClick={handleSigninClick}
