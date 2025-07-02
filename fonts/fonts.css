@@ -15,6 +15,13 @@
 
 @font-face {
   font-family: "Roboto";
+  src: url("./roboto-700.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
   src: url("./roboto-900.woff") format("woff");
   font-weight: 900;
   font-style: normal;
