@@ -86,22 +86,22 @@
 
 .news-card__tooltip {
   position: absolute;
-  /*top: -40px; */
-  left: 50%;
-  transform: translateX(-50%);
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: 8px;
   width: max-content;
   max-width: 200px;
   padding: 8px 12px;
   background-color: #fff;
   color: #000;
   border-radius: 6px;
-  font-size: 13px;
+  font-size: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   z-index: 10;
   white-space: nowrap;
   font-family: "Roboto", Arial, sans-serif;
   font-weight: 500;
-  font-size: 12px;
   line-height: 100%;
 }
 
