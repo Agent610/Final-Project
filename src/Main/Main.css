@@ -51,6 +51,7 @@
 @media screen and (max-width: 320px) {
   .main__title {
     max-width: 288px;
+    margin-top: 30px;
   }
 
   .main__info {

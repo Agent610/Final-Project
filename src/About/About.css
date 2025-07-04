@@ -109,7 +109,7 @@
   }
 
   .about__title {
-    width: auto;
+    max-width: 288px;
     height: auto;
     margin-left: 0;
     margin-left: 0;

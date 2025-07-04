@@ -265,4 +265,8 @@
     overflow: hidden;
     margin: 0;
   }
+
+  .news-card__footer {
+    padding: 0;
+  }
 }

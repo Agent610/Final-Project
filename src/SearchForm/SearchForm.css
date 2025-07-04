@@ -76,10 +76,11 @@
   .search-form {
     display: flex;
     flex-direction: column;
+    margin-top: 122px;
   }
 
   .search-input {
-    width: 288px;
+    width: 260px;
   }
 
   .search__button {
@@ -91,5 +92,10 @@
 
   .search-form__row {
     flex-direction: column;
+  }
+
+  .search-form__error {
+    margin-top: 86px;
+    margin-left: 16px;
   }
 }

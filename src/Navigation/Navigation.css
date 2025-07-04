@@ -222,6 +222,7 @@
     gap: 8px;
     padding: 0;
     background-color: white;
+    margin-right: 16px;
   }
 
   .hamburger-menu__line {

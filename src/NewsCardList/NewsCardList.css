@@ -123,6 +123,7 @@
   .newscard-list {
     max-width: 320px;
     flex-direction: column;
+    padding: 0;
   }
 
   .newscard-list__container {
