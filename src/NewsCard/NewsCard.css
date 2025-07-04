@@ -19,6 +19,10 @@
   border-radius: 8px;
   z-index: 1;
   max-width: 120px;
+  font-family: "Roboto", Arial, sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
 }
 
 .news-card__image {

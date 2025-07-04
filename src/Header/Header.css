@@ -62,6 +62,14 @@
   .header__logo {
     width: 200px;
     height: 24.8px;
+    margin-left: 40px;
+  }
+
+  .header__saved-news-logo {
+    margin-left: 40px;
+  }
+  .header__nav-bar {
+    padding: 0;
   }
 }
 

@@ -95,6 +95,9 @@
     padding: 0 16px;
   }
 
+  .newscard-list__no-results-text {
+    margin-left: 185px;
+  }
   .newscard-list__container {
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
