@@ -38,6 +38,9 @@ function NewsCard({
   return (
     <article className="news-card">
       <div className="news-card__image-container">
+        {!isHome && keyword && (
+          <div className="news-card__keyword">{keyword}</div>
+        )}
         <img src={image} alt={title} className="news-card__image" />
 
         <div

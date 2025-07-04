@@ -10,6 +10,7 @@ function NewsCardList({
   onSaveArticle,
   savedArticles,
   onDeleteArticle,
+  keyword,
 }) {
   const [visibleCards, setVisibleCards] = useState(3);
 
@@ -56,6 +57,7 @@ function NewsCardList({
               isLoggedIn={isLoggedIn}
               onSaveArticle={onSaveArticle}
               onDeleteArticle={onDeleteArticle}
+              keyword={article.keyword}
             />
           );
         })}

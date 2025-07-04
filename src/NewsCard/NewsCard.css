@@ -7,6 +7,20 @@
   background-color: #fff;
 }
 
+.news-card__keyword {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background-color: white;
+  color: black;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 8px;
+  z-index: 1;
+  max-width: 120px;
+}
+
 .news-card__image {
   width: 400px;
   height: 272px;
