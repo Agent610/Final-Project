@@ -18,14 +18,46 @@ const SavedNews = ({
       article.date || article.publishedAt || new Date().toISOString(),
   }));
 
+  const getTopKeywords = (articles) => {
+    const keywordCounts = {};
+
+    articles.forEach((article) => {
+      const keyword = article.keyword;
+      if (keyword) {
+        keywordCounts[keyword] = (keywordCounts[keyword] || 0) + 1;
+      }
+    });
+
+    const sortedKeywords = Object.entries(keywordCounts)
+      .sort((a, b) => b[1] - a[1])
+      .map(([keyword]) => keyword);
+
+    if (sortedKeywords.length === 0) return "";
+
+    if (sortedKeywords.length === 1) {
+      return sortedKeywords[0];
+    } else if (sortedKeywords.length === 2) {
+      return `${sortedKeywords[0]} and ${sortedKeywords[1]}`;
+    } else {
+      return `${sortedKeywords[0]}, ${sortedKeywords[1]}, and ${
+        sortedKeywords.length - 2
+      } others`;
+    }
+  };
   return (
     <main className="saved-news-page">
-      <div className="saved-news-header">
-        <h2>
+      <header className="saved-news-header">
+        <p className="saved-news-header__label">Saved articles</p>
+        <h2 className="saved-news-header__title">
           {userName} , you have {savedArticles.length} saved{" "}
           {savedArticles.length === 1 ? "article" : "articles"}
         </h2>
-      </div>
+        {savedArticles.length > 0 && (
+          <p className="saved-news-header__keywords">
+            By keywords: {getTopKeywords(savedArticles)}
+          </p>
+        )}
+      </header>
 
       {savedArticles.length === 0 ? (
         <p>You haven't saved any articles </p>
