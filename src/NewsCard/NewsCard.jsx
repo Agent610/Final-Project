@@ -72,17 +72,6 @@ function NewsCard({
               />
             )}
           </button>
-          {/* style=
-          {{
-            backgroundImage: `url(${
-              !isHome
-                ? TrashIcon
-                : isSaved || wasJustSaved
-                ? SaveMarked
-                : SaveunMarked
-            })`,
-          }}
-          /> */}
 
           {!isLoggedIn && isHovered && (
             <div className="news-card__tooltip">Sign in to save article</div>

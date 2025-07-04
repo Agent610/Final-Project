@@ -2,8 +2,7 @@ import React from "react";
 import NewsCardList from "../NewsCardList/NewsCardList";
 import NewsCard from "../NewsCard/NewsCard";
 import "./SavedNews.css";
-//import TrashIcon from "../../images/trash.svg";
-
+import TrashIcon from "../../images/trash.svg";
 const SavedNews = ({
   savedArticles,
   isLoggedIn,
