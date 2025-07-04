@@ -48,7 +48,6 @@ const MobileModal = ({
             className="mobile__button"
             onClick={() => {
               handleSigninClick();
-              //onClose();
             }}
           >
             Sign in

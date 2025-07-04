@@ -12,7 +12,6 @@
   position: relative;
   z-index: 1001;
   color: white;
-
   height: 24px;
   font-family: "Roboto Slab", Georgia, serif;
   font-weight: 700;
@@ -53,7 +52,6 @@
 .header__saved-news {
   width: auto;
   margin: 0 auto;
-  /* padding: 0 104px; */
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -76,7 +74,6 @@
 /* Mobile view */
 @media screen and (max-width: 320px) {
   .header {
-    /* padding: 0 16px 0 19px; */
     width: 100%;
   }
 

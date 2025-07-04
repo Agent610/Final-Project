@@ -167,11 +167,6 @@
 /* Tablet */
 @media screen and (max-width: 768px) {
   .navigation {
-    /* height: 66px;
-    padding: 0 24px; */
-    /* padding-left: 12px;
-    padding-right: 12px;
-    box-sizing: border-box; */
     padding: 0 20px;
   }
 
@@ -181,7 +176,6 @@
 
   .nav-list__button {
     margin-left: 0;
-    /* padding-left: 20px; */
   }
 
   .nav-list__link-home {

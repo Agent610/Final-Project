@@ -38,17 +38,6 @@
   color: #1a1b22;
 }
 
-/* .newscard-list__no-results {
-  height: 374px;
-  border: 1px;
-  background-color: #d1d2d6;
-  font-family: "Roboto Slab", Georgia, serif;
-  font-weight: 400;
-  font-size: 26px;
-  line-height: 30px;
-  align-items: center;
-} */
-
 .newscard-list__no-results {
   display: flex;
   flex-direction: column;
@@ -88,9 +77,6 @@
 /*Tablet View*/
 @media screen and (max-width: 768px) {
   .newscard-list {
-    /* max-width: 768px;
-    padding: 0 12px; */
-    /* box-sizing: border-box; */
     max-width: 100%;
     padding: 0 16px;
   }

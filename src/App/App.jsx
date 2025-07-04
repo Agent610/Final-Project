@@ -168,9 +168,6 @@ function App() {
         if (response) {
           setMessage("Registration successfully completed !");
           setActiveModal("registerSuccess");
-          // setTimeout(() => {
-          //   setActiveModal("login");
-          // }, 2000);
         }
       })
       .catch((error) => {
