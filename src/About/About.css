@@ -75,7 +75,7 @@
 
   .about__title {
     font-size: 30px;
-    width: 424px;
+    max-width: 424px;
     height: 34px;
     line-height: 40px;
     padding: 0;

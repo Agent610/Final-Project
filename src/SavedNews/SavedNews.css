@@ -16,6 +16,7 @@
   font-weight: 400;
   color: #1a1b22;
   margin-right: 624px;
+  text-align: left;
 }
 
 .saved-news-header__title {
@@ -26,6 +27,7 @@
   color: #1a1b22;
   /* margin: 0 0 16px; */
   max-width: 530px;
+  text-align: left;
 }
 
 .saved-news-header__keywords {
@@ -37,10 +39,27 @@
 }
 
 @media screen and (max-width: 768px) {
+  .saved-news-page {
+    padding: 0;
+  }
+
   .saved-news-header__label {
     max-width: 712px;
     width: 100%;
     margin-right: 0;
+    margin-top: 24px;
+    margin-left: 40px;
+  }
+
+  .saved-news-header__title {
+    margin-left: 40px;
+  }
+
+  .saved-news-header__keywords {
+    max-width: 712px;
+    margin: 0;
     text-align: left;
+    margin-bottom: 32px;
+    margin-left: 40px;
   }
 }
