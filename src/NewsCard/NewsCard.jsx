@@ -4,6 +4,7 @@ import "./NewsCard.css";
 import { useLocation } from "react-router-dom";
 import SaveMarked from "../../images/save-marked.svg";
 import SaveunMarked from "../../images/save-unmarked.svg";
+import TrashIcon from "../../images/trash.svg";
 
 function NewsCard({
   title,
@@ -16,6 +17,7 @@ function NewsCard({
   isLoggedIn,
   onSaveArticle,
   onDeleteArticle,
+  keyword,
 }) {
   const [isHovered, setIsHovered] = useState(false);
   const location = useLocation();
@@ -25,7 +27,7 @@ function NewsCard({
   const handleClick = () => {
     if (isHome) {
       if (isLoggedIn) {
-        onSaveArticle(title, description, source, link, image);
+        onSaveArticle(title, link, description, source, image);
         setWasJustSaved(true);
       }
     } else if (onDeleteArticle) {
@@ -48,15 +50,45 @@ function NewsCard({
               isSaved ? "news-card__save-button_saved" : ""
             }`}
             onClick={handleClick}
-            aria-label={isSaved ? "Remove from saved" : "Save article"}
-            style={{
-              backgroundImage: `url(${
-                isSaved || wasJustSaved ? SaveMarked : SaveunMarked
-              })`,
-            }}
-          />
+            aria-label={
+              isHome
+                ? isSaved
+                  ? "Remove from saved"
+                  : "Save article"
+                : "Remove from saved"
+            }
+          >
+            {!isHome ? (
+              <img
+                src={TrashIcon}
+                alt="Remove from saved"
+                className="news-card__icon"
+              />
+            ) : (
+              <img
+                src={isSaved || wasJustSaved ? SaveMarked : SaveunMarked}
+                alt={isSaved ? "Saved" : "Save article"}
+                className="news-card__icon"
+              />
+            )}
+          </button>
+          {/* style=
+          {{
+            backgroundImage: `url(${
+              !isHome
+                ? TrashIcon
+                : isSaved || wasJustSaved
+                ? SaveMarked
+                : SaveunMarked
+            })`,
+          }}
+          /> */}
+
           {!isLoggedIn && isHovered && (
             <div className="news-card__tooltip">Sign in to save article</div>
+          )}
+          {!isHome && isHovered && (
+            <div className="news-card__tooltip"> Remove from saved</div>
           )}
         </div>
       </div>
@@ -94,5 +126,6 @@ NewsCard.propTypes = {
   isLoggedIn: PropTypes.bool.isRequired,
   onSaveArticle: PropTypes.func.isRequired,
   onDeleteArticle: PropTypes.func,
+  keyword: PropTypes.string,
 };
 export default NewsCard;

@@ -81,6 +81,7 @@ function App() {
   const handleSearch = (query) => {
     setIsSearchLoading(true);
     setHasSearched(true);
+    setSearchKeyword(query);
 
     searchNews(query)
       .then((response) => {
@@ -95,6 +96,8 @@ function App() {
         setIsSearchLoading(false);
       });
   };
+
+  const [searchKeyword, setSearchKeyword] = useState("");
 
   //Article save functionality
   const [savedArticles, setSavedArticles] = useState([]);
@@ -120,6 +123,7 @@ function App() {
           description: description,
           source: { name: source },
           urlToImage: image,
+          keyword: searchKeyword,
         },
       ]);
     }
