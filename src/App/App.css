@@ -1,0 +1,119 @@
+.app {
+  background-color: white;
+  max-width: 1440px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.search__title {
+  width: 712px;
+  height: 46px;
+  font-family: "Roboto Slab", Georgia, serif;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 46px;
+  color: black;
+  margin-bottom: 64px;
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal__content {
+  background-color: white;
+  padding: 20px;
+  margin: auto;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 400px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.modal__content-login {
+  background-color: white;
+  border-radius: 16px;
+  height: 182px;
+  width: 430px;
+}
+
+.modal__message {
+  font-family: "Roboto", Arial, sans-serif;
+  font-weight: 900;
+  font-size: 24px;
+  margin-left: 36px;
+  margin-top: 43px;
+  /* width: 315px;
+  height: 56px; */
+}
+
+.modal__button {
+  margin-left: 36px;
+  padding: 10px 20px;
+  background-color: #2f71e5;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: "Inter", Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+}
+
+.modal__button:hover {
+  background-color: #1e5acc;
+}
+
+.modal__button:focus-visible {
+  outline: 2px solid #1e5acc;
+  outline-offset: 3px;
+}
+
+.modal__close-button {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: transparent;
+  background-image: url("../../images/close.svg");
+  background-size: 16px 16px;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  cursor: pointer;
+}
+
+.modal__close-button:hover {
+  background-color: rgba(47, 113, 229, 0.1);
+  border-radius: 50%;
+}
+
+.modal__close-button:focus-visible {
+  outline: 2px solid #1e5acc;
+  outline-offset: 3px;
+}
+
+@media screen and (max-width: 768px) {
+  .search__title {
+    width: 336px;
+    height: 34px;
+    font-size: 30px;
+    line-height: 34px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .search__title {
+    width: 288px;
+  }
+}
